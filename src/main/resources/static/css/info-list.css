@@ -1,0 +1,19 @@
+@charset "UTF-8";
+#info-list{
+	    width: 900px;
+    	padding: 25px 18px 40px;
+   		margin: 50px auto;
+}
+#info-list ul li:nth-child(1) {
+	border-bottom: 3px solid;
+}
+/* #info-list ul li:nth-child(1)::after{
+	content:"+";
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	border: 1px dotted;
+	background-color: #a9a9a9;
+}
+ */
