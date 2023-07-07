@@ -1,0 +1,120 @@
+@charset "UTF-8";
+#menu-list > ul > li > span{font-size:15px;}
+#menu-list{
+	padding:30px;padding: 30px;
+    background-color: #f9f9f9e0;
+    border-radius: 3em 3em 0 0;
+    }
+#menu-list > ul{width: 700px;margin: 0 auto;}
+#menu-list a{font-size: 16px;font-weight: 700px;}
+
+
+#search {
+  position: relative;
+  width: 300px;
+  margin-top:20px; 
+}
+
+#local{
+  width: 40%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 5px 2px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+#search input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+#search img {
+  position : absolute;
+  width: 17px;
+  top: 6px;
+  right: 9px;
+  margin: 0;
+}
+#dataTableBody {
+    width: 100%;
+    border-collapse: collapse;
+    font-size:12px;
+    margin: 10px 0;
+     
+  }
+ 
+
+  #dataTableBody th,
+  #dataTableBody td {
+    border: 1px solid #ddd;
+    padding: 8px;
+     
+  }
+  #dataTableBody tr td:last-child{
+   word-wrap: break-word; 
+    word-break: break-all; 
+  }
+  
+
+  #dataTableBody th {
+    background-color: #f2f2f2;
+    text-align: center;
+    word-wrap: break-word; /* 긴 단어를 다음 줄로 내립니다. */
+    word-break: break-all; /* 긴 텍스트를 다음 줄로 내립니다. */
+    
+    
+  }
+
+  #dataTableBody tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+ 
+#pagination{
+	margin-bottom:100px;
+}
+#pagination>a{
+	height:20px;
+	width:20px;
+	border:1px solid #a9a9a9;
+	margin:0.8px;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 5px;
+	
+}
+
+#mapBtn{
+	width:60px;
+	height:30px;
+	position: absolute;
+	top:3%;
+	left:3%;
+	z-index: 1;
+	border-radius: 7px;
+	cursor: pointer;
+}
+#roadBtn{
+	width:60px;
+	height:30px;
+	position: absolute;
+	top:3%;
+	left:3%;
+	z-index: 1;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+

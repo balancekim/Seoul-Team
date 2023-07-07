@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+h1{position: absolute; left: -9999px}
+a{color: #222; cursor: pointer; text-decoration: none;}
+input{outline: none; border: 1px solid #a9a9a9;}
+button{border: none;}
+select{border: 1px solid #a9a9a9;}
+li{list-style: none;}
+body {
+	color: #222;
+	font-size: 14px;
+}
+.flex{display: flex;}
+.row{flex-direction: row;}
+.column{flex-direction: column;}
+.center{justify-content: center;}
+.between{justify-content: space-between;}
+.around{justify-content: space-around;}
+.right{justify-content: flex-end;}
+
+
+.wrap{
+	width: 900px;
+}
+
+#menu-list{
+	width: 900px;
+	margin: 0 auto;
+	padding:30px;
+    background-color: #f9f9f9e0;
+    border-radius: 3em 3em;
+    }
+#menu-list > ul{width: 700px;margin: 0 auto;}
+#menu-list a{font-size: 16px;font-weight: 700px;}
+
+
+
+
+.form-update{display: none;}
+
+
+#main{
+	width: 900px;
+	margin: 2em auto;
+}
+#main .changeState {
+	margin-top: 12px;
+}
+#main .changeState .list a{
+	background-color: buttonface;
+}
+
+#main #update{
+	text-align: end;
+	font-size: 16px;
+	font-weight: bold;
+}
+#main #update>a{
+	padding: 2px 2px;
+}
+
+#main #update>a:first-child{
+	border-right: 2px solid #000;
+	padding-right: 10px;
+}
+table {
+        border-collapse: collapse;
+        width: 100%;
+        border:3px solid #aaa;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-top: 1px solid #aaa;
+    }
+
+    th {
+        /* background-color: #f2f2f2; */
+        color: #555;
+        width:120px;
+        
+        border-right:1px solid #aaa;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    td{
+    	 border-right:1px solid #aaa;
+        border-left:1px solid #aaa
+    }
+
+#basic > tbody > tr:nth-child(7) > td {
+   	border-top:3px solid #aaa;
+   	border-bottom:3px solid #aaa;
+}
+
+
+
+#comment-write{
+	margin: 50px 0 7px 0;
+	
+	border-radius: 6px;
+    position: relative;
+    /* border: 1px solid; */
+    width: 900px;
+    height: 90px;
+}
+#comment-write input{
+	width:850px;
+	height: 70px;
+	border-radius: 6px;
+    padding-left: 20px;
+    margin-right: 10px;
+}
+#comment-write .btn-reply,
+#comment-write #btn-reply{
+	border-radius: 6px;
+    width: 70px;
+    height: 70px;
+    background-color: buttonface;
+}
+#comment-write .btn-reply:hover,
+#comment-write #btn-reply:hover{
+	cursor: pointer;
+}
+#comment-write div a{
+	text-align: center;
+}
+#comment-write div a>p{
+	margin-top: 25px;
+}
+#comment-list td:first-child {
+	width:738px
+}
+
+#comment-list thead td{
+	padding:12px 22px;
+	text-align: center;
+}
+
+#comment-list tbody td {
+	padding: 15px;
+}
+
+#detail > div > div.changeState > div:nth-child(1) > a{
+	font-size:17px;
+	padding:5px;
+}
+
+#comment-list .update .space,
+#comment-list .update-edit .space{
+	margin-right: 10px;
+	
+}

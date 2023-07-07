@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="_csrf" th:content="${_csrf.token}">
+		<meta name="_csrf_header" th:content="${_csrf.headerName}">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=92df0645f503562ca16d1ec752e9a1f3&libraries=services,clusterer,drawing"></script>
+		
+		<script src="/js/apipaging.js"></script>
+		<link rel="stylesheet" href="/css/map.css">
+		<link rel="stylesheet" href="/css/mystyle.css">
+		
+	</head>
+	<body>
+		<main>
+		
+			<div style="margin: 0 auto;width:900px;">
+				<section id="mapAndroad" style="position: relative;">
+					<div id="map-list" >
+						<div id="map" style="width:900px;height:500px;border-radius: 0 0 3em 3em;"></div>
+						<input  type="button" id="mapBtn" onclick="changeRoad()" title="로드뷰 보기" value="로드뷰">
+					</div>
+					<div id="road-map-list"style="display: none;">
+						<div id="road-map" style="width:900px;height:500px;border-radius: 0 0 3em 3em;"></div>
+						<input type="button" id="roadBtn"onclick="changeMap()"  title="지도 보기" value="지도">
+					</div>
+				</section>
+				<p style="margin-top:30px;font-size: 16px;font-weight: bold">다둥이카드 협력업체</p>
+				<section id="search" class="flex">
+					
+					<select name="local" id="local" onchange="localChangeProcess()">
+						<option >서울시 전체</option>
+			            <option value='1'>강남구</option>
+			            <option value='2'>강동구</option>
+			            <option value='3'>강북구</option>
+			            <option value='4'>강서구</option>
+			            <option value='5'>관악구</option>
+			            <option value='6'>광진구</option>
+			            <option value='7'>구로구</option>
+			            <option value='8'>금천구</option>
+			            <option value='9'>노원구</option>
+			            <option value='10'>도봉구</option>
+			            <option value='11'>동대문구</option>
+			            <option value='12'>동작구</option>
+			            <option value='13'>마포구</option>
+			            <option value='14'>서대문구</option>
+			            <option value='15'>서초구</option>
+			            <option value='16'>성동구</option>
+			            <option value='17'>성북구</option>
+			            <option value='18'>송파구</option>
+			            <option value='19'>양천구</option>
+			            <option value='20'>영등포구</option>
+			            <option value='21'>용산구</option>
+			            <option value='22'>은평구</option>
+			            <option value='23'>종로구</option>
+			            <option value='24'>중구</option>
+			            <option value='25'>중랑구</option>
+					</select>
+					
+					<div>
+						<input id="searchbox" type="text" onkeydown="if(event.keyCode===13) localChangeAndSearchProcess()" placeholder="업체명을 입력하세요">
+						<img src="/images/magnifying-glass-solid (1).svg" onclick="localChangeAndSearchProcess()">
+					</div>
+					
+				</section>
+				<section id="list">
+					<h1>게시글내용</h1>
+					<div class="wrap">
+						<p class="tit"></p>
+						<table id="dataTableBody">
+							<thead>
+								<tr>
+									<th style="width:73px;">카테고리</th>
+									<th>업체이름</th>
+									<th>주소</th>
+									<th>전화번호</th>
+									<th>혜택</th>
+								</tr>
+							</thead>
+							<tbody id="show">
+								
+							</tbody>
+						</table>
+						<div class="page-wrap flex center" id="pagination">
+							
+						</div> 
+					</div>
+				</section>
+			</div>
+		</main>
+
+	</body>
+
+</html>

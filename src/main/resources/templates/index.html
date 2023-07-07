@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	th:replace="~{ layout/layout2 :: basic(~{this::head},~{::main}) }">
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="/css/main-sm.css">
+        <style>
+			@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+		</style>
+    </head>
+    <body>
+        <main>
+        	<h1>메인영역</h1>
+        	
+        	<div id="all" class="main-wrap center">
+        	
+        		<div class="top">	
+					<!-- <div class="logo">
+						<a href="#" style="font-family: 'Single Day', cursive"><span style="color: #eb3b5a">아이 </span><span style="color: #0984e3">live in Seoul</span></a>
+					</div> -->
+        		</div>
+        		<div class="mid flex between">
+        			<div class="box box1">
+        				<a href="/mapPage">
+        					<span class="inner">
+        						<span class="inner2">다둥이카드 협력업체</span>
+        					</span>
+        				</a>
+        			</div>
+        			<div class="box box2">
+        				<a href="/mapPage2">
+        					<span class="inner">
+        						<span class="inner2">아이들을 위한 시설</span>
+        					</span>
+        				</a>
+        			</div>
+        			<div class="box box3">
+        				<a href="/mapPage3">
+        					<span class="inner">
+        						<span class="inner2">유원시설</span>
+        					</span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        </main>
+
+    </body>
+</html>

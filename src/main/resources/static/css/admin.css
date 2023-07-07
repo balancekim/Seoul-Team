@@ -1,0 +1,67 @@
+@charset "UTF-8";
+body{
+	font-size: 14px;
+}
+body>header{
+	width: 250px;
+	background-color: #3f4b5c;
+	color: #fff;
+	min-height: 100vh;
+}
+body>header a{
+	color: #fff;
+}
+header>.wrap{
+	padding: 20px;
+}
+header>.wrap>dl:not(:last-child){
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+header>.wrap>dl{
+	padding: 20px 0;
+}
+header>.wrap>dl dt{
+	font-weight: 700;
+	display: flex;
+	justify-content: space-between;
+}
+header>.wrap>dl dd{
+	display: none;
+}
+header>.wrap>dl dt.open + dd{
+	display: block;
+}
+header>.wrap>dl dd div{
+	color: rgba(255,255,255, 0.7);
+	padding: 0 1em;
+	margin: 1em 0;
+	font-size: 13px;
+}
+header>.wrap>dl dd div a{
+	color: rgba(255,255,255, 0.7);
+}
+header>.wrap>dl dt::after {
+	content:"";
+	display: flex;
+	font-size:5px;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+	/* border: 1px dotted #FFF; */
+	background-image: url("/images/common/expand_more.svg");
+	background-color: rgba(255,255,255, 0.7);
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+}
+header>.wrap>dl dt.open::after{
+	background-image: url("/images/common/expand_less.svg");
+}
+
+main{
+	/* width: 100vh-250px; */
+	margin-left: 40px;
+	/* min-height: 100vh;  */
+	padding: 40px 0;
+}

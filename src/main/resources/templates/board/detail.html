@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
+<head>
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+	<link rel="stylesheet" href="/css/board/detail2.css">
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#comment-write").submit(function(e){e.preventDefault();})
+			$("#btn-reply").click(btnReplyClicked);
+			commentList();
+		});
+		function clickEvent(){
+        	alert('로그인 후 사용 하실수 있습니다.');
+        }
+		function commentList(){
+			$.ajax({
+				url:`/board/[[${board.no}]]/comment`,
+				type:"get",
+				success:function(result){
+					$("#comment-list").html(result);
+				}
+			});
+		}
+		function btnReplyClicked(){
+			
+			var paramData=$("#comment-write").serialize();
+			
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			
+			$.ajax({
+				beforeSend:function(xhr) {
+					xhr.setRequestHeader(header, token);
+				},
+				url:`/board/[[${board.no}]]/comment`,
+				type:"POST",
+				data: paramData,
+				success:function(result){
+					commentList();
+				}
+			});
+		}
+		
+	</script>
+	
+	
+</head>
+<main>
+	<h1>게시글 상세페이지</h1>
+	<div class="wrap view-size">
+		<div id="main">
+			<!-- <p class="tit">게시글 상세페이지</p> -->
+			<section id="detail">
+				<h1>상세정보</h1>
+				
+				<div>
+					<table id="basic">
+						<tr>
+							<th>글번호</th>
+							<td th:text="${board.no}">번호</td>
+						</tr>
+						<tr>
+							<th>작성일</th>
+							<td>
+								<span th:if="${board.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${#temporals.format(board.updatedDate,'HH:mm')}">오늘인경우 시간만</span>
+								<span th:unless="${board.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${board.updatedDate.toLocalDate()}">오늘이 아니면 날짜만</span>
+							</td>	
+						</tr>
+						<tr>
+							<th>조회수</th>
+							<td th:text="${board.view}">조회수</td>
+						</tr>
+						<tr>
+							<th>제목</th>
+							<td th:text="${board.title}">제목</td>
+						</tr>
+						<tr>
+							<th>작성자</th>
+							<td th:text="${board.creator.userId}">작성자</td>
+						</tr>
+						<tr>
+							<td colspan= "2" th:utext="${board.content}">내용</td>
+						</tr>
+					</table>
+					<!--목록 /수정 /삭제  -->
+					<div class="flex between changeState">
+						<div class="list">
+							<a href="/board/list">목록</a>
+						</div>
+						<div sec:authorize="isAuthenticated()">
+							<th:block th:if="${#authentication.getPrincipal().getUsername() == board.creator.userId}">
+								<div id="update">
+									<a th:href="@{/board/modify/{no}(no= ${board.no})}">수정</a>
+									<a th:href="@{/board/delete/{no}(no=${board.no})}">글삭제</a>
+								</div>
+							</th:block>
+						</div>
+					</div>
+					<!-- 댓글 작성 부분 -->
+					<form id="comment-write" th:action="@{/comment/write/{no} (no=${board.no})}" method="post">
+						<div class="flex" sec:authorize="isAuthenticated()">
+							<input type="text" name="commentContent" placeholder="댓글을 작성해 주세요">
+							<button type="submit" id="btn-reply"><p>등록</p></button>
+						</div>
+						<div class="flex"  sec:authorize="isAnonymous()">
+							<input type="text" name="commentContent" placeholder="댓글을 작성해 주세요">
+							<a class="btn-reply" onclick=clickEvent(); ><p>등록</p></a>
+						</div>
+						
+					</form>
+					<!-- 댓글 출력 부분 -->
+					<div id="comment-list"></div>
+				</div>
+			</section>
+		</div>
+	</div>
+</main>
+</html>

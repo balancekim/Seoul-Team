@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+h1{position: absolute; left: -9999px}
+a{color: #222; cursor: pointer; text-decoration: none;}
+input{outline: none; border: 1px solid #a9a9a9;}
+button{border: none;}
+select{border: 1px solid #a9a9a9;}
+li{list-style: none;}
+body {
+	
+	margin:0 auto;
+	color: #222;
+	font-size: 14px;
+}
+.flex{display: flex;}
+.row{flex-direction: row;}
+.column{flex-direction: column;}
+.center{justify-content: center;}
+.between{justify-content: space-between;}
+.around{justify-content: space-around;}
+.view-size{width: 460px; margin: 0 auto;}
+
+/* //////////////// */
+#logo>.wrap{
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	padding: 60px 0 20px;
+}
+
+
+/* //////////////// */
+#com>.wrap{
+
+	padding: 30px 0 15px;
+	font-size: 12px;
+	text-align: center;
+}
+#com>.wrap .info li:not(:first-child):before{
+	content: "|";
+	margin-right: 10px;
+	font-size: 11px;
+	color: #a9a9a9;
+	vertical-align: top;
+}
+#com>.wrap .info li{
+	margin-right: 10px;
+	font-size: 0;
+}
+#com>.wrap .info li a{
+	font-size: 12px;
+}
+#com>.wrap .copy{
+	/* info와 바깥여백 */
+	margin-top: 10px;
+}

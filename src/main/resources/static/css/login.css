@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+main{
+	padding-bottom: 100px;
+}
+*{margin: 0; padding: 0; box-sizing: border-box;}
+h1{position: absolute; left: -9999px}
+li{list-style: none;}
+
+.view-size{
+	width: 800px;
+	margin: 0 auto;
+}
+.member-size{
+	width: 460px;
+	margin: 0 auto;
+}
+
+.flex{
+	display: flex;
+}
+.center{
+	justify-content: center;
+}
+.between{
+	justify-content: space-between;
+}
+
+.ptit{
+	font-size: 18px;
+	font-weight: 700;
+	padding: 20px;
+}
+
+
+main>.wrap{
+	margin-top: 40px;
+	padding: 50px 30px;
+	border: 1px solid #eaeaea;
+	border-radius: 5em;
+}
+#logod>.wrap{
+	text-align: center;
+}
+
+#logod>.wrap a{
+	font-size: 48px;
+	font-weight: bold;
+	color: #eb3b5a;
+}
+#login-form{
+	margin-top: 40px;
+}
+
+#login-form>.wrap .msg p{
+	padding: 1em;
+	color: white;
+}
+#login-form>.wrap .msg .error{
+	background-color: red;
+}
+
+
+#login-form>.wrap form ul li{
+	margin: 10px 0;
+	
+}
+#login-form>.wrap form ul li input{
+	padding: 0.5em 1em;
+	width: 100%;
+	height: 50px;
+	border-radius: 50px;
+}
+
+#login-form>.wrap form ul li button{
+	padding: 0.5em 1em;
+	width: 100%;
+	background-color: #0984e3;
+	color: white;
+	border-radius: 50px;
+	height: 35px;
+	cursor: pointer;
+}
+#logo > div:nth-child(2){
+	display: none;
+}
+#social{
+	margin: 30px 7px 0;
+}
+#social .google a{
+	display:block;
+	background-image:url("/images/btn_google_signin_light_pressed_web.png"); 
+	height: 31px;
+	width: 110px;
+	border-radius:6px;
+	background-size:110px 31px;
+	background-repeat: no-repeat;
+}
+#social .naver a{
+	display:block;
+	background-image:url("/images/btnG_축약형.png"); 
+	height: 30px;
+	width: 110px;
+	border-radius:6px;
+	background-size:110px 30px;
+	background-repeat: no-repeat;
+}#social .kakao a{
+	display:block;
+	background-image:url("/images/kakao_login_large_narrow.png"); 
+	height: 30px;
+	width: 110px;
+	border-radius:6px;
+	background-size:110px 30px;
+	background-repeat: no-repeat;
+}
