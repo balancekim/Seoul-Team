@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org" >
+	<section>
+		<h1>카테고리</h1>
+		<div class="wrap">
+			<p>카테고리 목록</p>
+			<hr>
+			<ul>
+				<li th:each="dto : ${list}">
+					<span th:text="${dto.no}">카테고리번호</span>
+					<span th:text="${dto.name}">카테고리이름</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+</html>

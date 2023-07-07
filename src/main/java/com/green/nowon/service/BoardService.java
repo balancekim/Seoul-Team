@@ -1,6 +1,5 @@
 package com.green.nowon.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;
@@ -8,11 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
-import com.green.nowon.domain.dto.BoardDTO;
 import com.green.nowon.domain.dto.BoardSaveDTO;
 import com.green.nowon.domain.dto.BoardUpdateDTO;
 import com.green.nowon.domain.entity.BoardEntity;
