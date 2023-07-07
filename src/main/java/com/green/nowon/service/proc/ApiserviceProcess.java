@@ -104,7 +104,7 @@ public class ApiserviceProcess implements ApiService {
 	public List<Item> LocalCateSearch(String keyWord, String searchValue) throws Exception {
 		List<Item> allList = new ArrayList<>();
 		for (int i = 1; i < 4000; i += 1000) {
-			URL url = new URL("http://openapi.seoul.go.kr:8088/"+apiKey+"+/json/InfoHappycard/" + i
+			URL url = new URL("http://openapi.seoul.go.kr:8088/"+apiKey+"/json/InfoHappycard/" + i
 					+ "/" + (i + 999));
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
