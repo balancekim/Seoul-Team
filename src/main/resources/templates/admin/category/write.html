@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org" >
+	<section id="goods-wrte" >
+		<h1>카테고리</h1>
+		<div class="wrap">
+			<p>카테고리 페이지</p>
+			<hr>
+			<form id="form-category">
+				<ul>
+					<li>
+						<label>카테고리</label>
+						<span id="category">
+							<!-- 카테고리가 들어갈영역 -->
+						</span>
+						<input type="text" name="name" placeholder="새로운 카테고리" required="required">
+					</li>
+					
+					<li>
+						<button type="button" onclick="categorySubmitted()" >카테고리등록</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</section>
+	
+</html>

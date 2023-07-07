@@ -29,17 +29,26 @@ function memuClicked(){
 }
 
 //카테고리 등록
-function categorySubmitted(){
-	var formData=$("#form-category").serialize();
-	$.ajax({
-		url:"/admin/category",
-		type: "POST",
-		data: formData,
-		success:function(){
-			$("a[href='/admin/category/new']").trigger("click");
-			alert("등록완료");
-		}
-	});
+function categorySubmitted() {
+    
+    var formData = $("#form-category").serialize();
+	/*
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+
+    $(document).ajaxSend(function(e, xhr, options) {
+        xhr.setRequestHeader(header, token);
+    });
+    */
+    $.ajax({
+        url: "/admin/category/new",
+        type: "POST",
+        data: formData,
+        success: function() {
+            $("a[href='/admin/category/new']").trigger("click");
+            alert("등록완료");
+        }
+    });
 }
 
 function categoryList(){
