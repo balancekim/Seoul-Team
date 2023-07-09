@@ -1,25 +1,15 @@
 package com.green.nowon.security;
 
-import javax.persistence.Basic;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
-import org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-
-import lombok.RequiredArgsConstructor;
 
 
 @EnableWebSecurity //Configuration 이라는 뜻
@@ -46,8 +36,7 @@ public class WebSecurityConfig {
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
-		
-			//.csrf(csrf->csrf.disable()) 
+			
 			.authorizeHttpRequests(authorize->
 			authorize
 
@@ -55,7 +44,6 @@ public class WebSecurityConfig {
 					.antMatchers("/","/sign**","/board/**","/map*").permitAll() // ()안에 있는 요소들은 다 허가할게요
 					.antMatchers(HttpMethod.GET,"/board/*").permitAll() //get method 로 요청한 것만 허용한다
 					.antMatchers(HttpMethod.POST,"/board/*").permitAll() //post method 로 요청한 것만 허용한다 
-					.antMatchers("/admin/**").hasRole("ADMIN")
 					.anyRequest() 
 						.authenticated() 
 								

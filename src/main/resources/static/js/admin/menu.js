@@ -30,23 +30,24 @@ function memuClicked(){
 
 //카테고리 등록
 function categorySubmitted() {
+    var header = $("meta[name='_csrf_header']").attr('content');
+	var token = $("meta[name='_csrf']").attr('content');
     
     var formData = $("#form-category").serialize();
-	/*
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
-
-    $(document).ajaxSend(function(e, xhr, options) {
-        xhr.setRequestHeader(header, token);
-    });
-    */
     $.ajax({
         url: "/admin/category/new",
         type: "POST",
         data: formData,
+        
+        beforeSend: function(xhr){
+        xhr.setRequestHeader(header, token);
+   	 	},
+   	 	
         success: function() {
             $("a[href='/admin/category/new']").trigger("click");
+            
             alert("등록완료");
+            
         }
     });
 }

@@ -40,9 +40,9 @@ function goodsSummited(){
 		 data: formData,
 		 success: function(resultMap){
 			 $(fileEl).parent().css("background-image",`url(${resultMap.imgUrl})`);
+			 $(fileEl).parents(".img-wrap").find(".tempKey").val(resultMap.tempKey);
 			 $(fileEl).parents(".img-wrap").find(".orgName").val(resultMap.orgName);
 			 $(fileEl).parents(".img-wrap").find(".newName").val(resultMap.newName);
-			 $(fileEl).parents(".img-wrap").find(".tempKey").val(resultMap.tempKey);
 			 
 			 var def=$(fileEl).parents(".img-wrap").find(".def").val();
 			 if(def=="true")return;//대표이미지이면 함수종료
