@@ -3,6 +3,8 @@
 	 th:fragment="layout(head, main)">
     <head>
         <meta charset="UTF-8">
+        <meta th:if="${_csrf}" name="_csrf" th:content="${_csrf.token}"/>
+		<meta th:if="${_csrf}" name="_csrf_header" th:content="${_csrf.headerName}"/>
         <title>Insert title here</title>
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/js/admin/menu.js"></script>
@@ -12,6 +14,6 @@
     </head>
     <body class="flex">
         <th:block th:insert="~{layout/admin/header-admin}" />
-        <th:block th:replace="${main}" />
+        <th:block th:insert="${main}" />
     </body>
 </html>
