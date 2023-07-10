@@ -1,5 +1,6 @@
 package com.green.nowon.domain.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="users")
 @Entity
-public class UserEntity {
+public class UserEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long no;

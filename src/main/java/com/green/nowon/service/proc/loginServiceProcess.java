@@ -38,12 +38,14 @@ public class loginServiceProcess implements loginService{
 			//조회 결과가 있다면
 			UserEntity userEntity = byUserId.get();
 			String savedPw = userEntity.getPassword();
+			System.out.println("savePW"+savedPw);
 			String inputPw = dto.getPassword();
+			System.out.println("inputPw:"+inputPw);
 				
 			if(savedPw.equals(inputPw)) {
 				//비밀번호 일치
 				UserDTO userDTO = UserDTO.toUserDTO(userEntity);
-				return "redirect:/";
+				return "redirect:/mapPage";
 			}else {
 				//비밀번호 불일치(로그인 실패)
 			}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ layout/layout2 :: basic(~{this::head},~{::main}) }">
+	<head>
+		<link rel="stylesheet" href="/css/login.css">
+
+		<script src="/js/login.js"></script>
+
+	</head>
+	<body>
+		<main>
+			<h1>회원가입</h1>
+			<div class="wrap member-size">
+				<section id="logod">
+					<h1>로고영역</h1>
+					<div class="wrap">
+						<a>개인정보 페이지 만들거임</a>
+					</div>
+				</section>
+				<section id="login-form">
+					<h1>로그인 폼</h1>
+					<div class="wrap">
+						<form action="/login" method="post" name="loginForm" onsubmit="return loginCheck()">
+							<ul>
+								<li>
+									<input type="text" name="userId" id="userId" placeholder="아이디 입력" >
+									<span id="wrongmessage1" style="color: #eb3b5a"></span>
+								</li>
+								<li>
+									<input type="password" name="password" id="password" placeholder="비밀번호 입력">
+									<span id="wrongmessage2" style="color: #eb3b5a"></span>
+								</li>
+								<li>
+									<input type="hidden" th:name="${_csrf.parameterName}"
+											th:value="${_csrf.token}"/>
+									<button type="submit" id="loginbtn">로그인</button>
+								</li>
+								<li>
+									<a href="/signup" style="margin-left: 323px;">회원가입</a>
+								</li>
+								<li style="color:#eb3b5a" th:if="${param.error}">아이디 또는 비밀번호가 틀립니다.</li>
+							</ul>
+						</form>
+						<div id="social" class="flex between">
+							<div class="google">
+								<a href="/oauth2/authorization/google" ></a>
+	    						<p></p>
+	    					</div>
+	    					<div class="naver">
+	    						<a href="/oauth2/authorization/naver" ></a>
+	    						<p></p>
+	    					</div>
+	    					<div class="kakao">
+	    						<a href="/oauth2/authorization/kakao"></a>
+								<p></p>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>

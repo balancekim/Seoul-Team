@@ -23,6 +23,8 @@
 		        	<input type="hidden" th:if="${_csrf}" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 		           	<button style="cursor: pointer;background-color: white;">로그아웃</button>
 		   		</form>
+		   		<span style="color:#c9c9c9;margin:0 1.5px"> |</span>
+		   		<a href="/userPwCheck">마이페이지</a>
 		   		<div sec:authorize="hasRole('ADMIN')" >
 		   			<span style="color:#c9c9c9;margin:0 1.5px"> |</span>
 		   			<a href="/admin">관리자페이지</a>
