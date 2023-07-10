@@ -32,4 +32,6 @@ public class GoodsImageEntity {
 	
 	@ManyToOne
 	private GoodsEntity goods; //goods_no
+
+
 }
