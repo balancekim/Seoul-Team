@@ -12,7 +12,9 @@ import com.green.nowon.domain.entity.UserEntityRepository;
 import com.green.nowon.service.loginService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @RequiredArgsConstructor
 @Service
 public class loginServiceProcess implements loginService{
@@ -59,11 +61,13 @@ public class loginServiceProcess implements loginService{
 	@Override
 	public String idCheck(String idBox) {
 		Optional<UserEntity> result=repository.findByUserId(idBox);
+		
 		if(result.isPresent()) {
 			return "true";
 		}else {
 		return "false";
 		}
+		//존재하는 id 이면 true 존재하지 않는 id이면 false
 	}
 
 
