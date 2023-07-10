@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+		<link rel="stylesheet" href="/css/goods/detail.css">
+	</head>
+	<body>
+		<main>
+			<h1>메인영역</h1>
+			<div class="wrap view-size">
+				<div id="detail">
+					<h1>상세페이지</h1>
+					<div class="wrap">
+						<div class="flex">
+							<div class="img-area">
+								
+								<ol class="flex">
+									<th:block th:each="img:${imgs}">
+										<li class="img" th:classappend="${img.def}?'def'"
+											th:style="|background-image: url('${img.url}');|"></li>
+									</th:block>
+								</ol>
+								
+							</div>
+							<ul class="detail-info">
+								<li th:text="${detail.title}">타이틀</li>
+								<li class="flex between">
+									<span>판매가</span>
+									<i>
+									<span th:text="${#numbers.formatInteger(detail.price,3, 'COMMA')}"></span>
+									<span>원</span>
+									</i>
+								</li>
+								<li class="flex between">
+									<span>수량</span>
+									<i>
+										<input type="number" value="1">
+										<span>개</span>
+									</i>
+								</li>
+								<li class="flex between">
+									<span>배송비</span>
+									<i>
+										<span th:text="${#numbers.formatInteger(3000,3, 'COMMA')}"><span>원</span></span>
+									</i>
+								</li>
+								<li class="flex between">
+									<span>구매금액</span>
+									<i>
+										<span th:text="${#numbers.formatInteger(3000+detail.price,3, 'COMMA')}"><span>원</span></span>
+									</i>
+								</li>
+								<li>
+									<input class="name" type="hidden" th:value="${detail.title}">
+									<input class="amount" type="hidden" th:value="${3000+detail.price}">
+									<button type="button">장바구니</button>
+									<button type="button" onclick="pay(this)">구매하기</button>
+								</li>
+							</ul>
+						</div>
+						<div class="detail-content">
+							<textarea >[(${detail.content})]</textarea>
+						상세정보
+						</div>		
+					</div>
+				</div>
+				
+			</div>
+		</main>
+	</body>
+</html>

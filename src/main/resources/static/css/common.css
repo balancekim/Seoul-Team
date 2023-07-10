@@ -10,6 +10,7 @@ h1{position:  absolute; left: -999999px}
 a{text-decoration: none;}
 .flex{display: flex;}
 .center{justify-content: center;}
+.between{justify-content: space-between;}
 .box{
 	display: inline-flex;
 	min-width: 40px;
