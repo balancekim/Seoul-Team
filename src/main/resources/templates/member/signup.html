@@ -8,7 +8,7 @@
 	<meta name="_csrf_header" th:content="${_csrf.headerName}">
 	<title>회원가입페이지</title>
 	<link rel="stylesheet" href="/css/mystyle.css">
-	<link rel="stylesheet" href="/css/ncstest09-김재근.css">
+	<!-- <link rel="stylesheet" href="/css/ncstest09-김재근.css"> -->
 	<script src="/js/signup2.js"></script>
 	<script src="/js/mail.js"></script>
 </head>
@@ -22,7 +22,7 @@
 					<li class="id">
 
 						<label>아이디</label>
-						<input type="text" id="idBox" name="userId" onblur="checkUserId()">
+						<input type="text" id="idBox" name="userId" onblur="checkUserId()" >
 						<span id="id-dup-result" style="color: #eb3b5a"></span>
 					</li>
 					<li class="pw">

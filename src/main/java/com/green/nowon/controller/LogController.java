@@ -58,8 +58,11 @@ public class LogController {
 	@ResponseBody
 	@PostMapping("/memberIdCheck")
 	public String signupcheck(@RequestParam("idBox")String idBox) {
+		
 		return service.idCheck(idBox);
 	}
+	
+	
 	
 	@ResponseBody
 	@PostMapping("/memberEmailCheck")

@@ -43,6 +43,7 @@ function checkUserId(){
 }
 
 
+
 function checkPass(){
 	
 	var user_pass = $('#passWord').val();
