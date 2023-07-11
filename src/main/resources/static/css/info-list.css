@@ -5,7 +5,7 @@
    		margin: 50px auto;
 }
 #info-list ul li:nth-child(1) {
-	border-bottom: 3px solid;
+	border-bottom: 3px INSET;
 }
 /* #info-list ul li:nth-child(1)::after{
 	content:"+";
@@ -17,3 +17,16 @@
 	background-color: #a9a9a9;
 }
  */
+
+#info-list  li:not(:first-child) {
+	padding:15px 0px;
+}
+#info-list  li:last-child {
+	border-bottom: 3px INSET;
+}
+.content{
+	width:600px;
+}
+#info-list img{
+	cursor: pointer;
+}
