@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
+	<head>
+		 <link rel="stylesheet" href="/css/userInfo.css"> 
+
+		<script src="/js/userInfo.js"></script>
+		<style type="text/css">
+		
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>회원가입</h1>
+			<section id="logod">
+				<h1>로고영역</h1>
+				<div class="wrap">
+					<a>아이디 찾기</a>
+					<p>회원님의 소중한 개인정보를 위하여 본인확인이 필요합니다.</p>
+					<p>회원가입시 등록한 이메일과 입력한 이메일이 같아야 인증번호를 받을 수 있습니다</p>
+					
+				</div>
+			</section>
+			<div class="wrap member-size">
+				<section id="login-form">
+					<div class="wrap">
+						<form action="/userInfo" method="post" onsubmit="return loginCheck()">
+							<table>
+								<tr>
+									<td>
+										<input type="text" name="name" placeholder="이름">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="email" placeholder="이메일">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="code"  placeholder="인증번호">
+									</td>
+								</tr>
+							</table>
+							<div class="btn flex between ">
+								<input type="hidden" th:name="${_csrf.parameterName}"
+									th:value="${_csrf.token}"/>
+								<button type="submit">확인</button>
+								<button type="button" onclick="goHome()">메인으로</button>
+							</div>
+							<div id="wrongmessage">
+							</div>
+						</form>
+					</div>
+					
+				</section>
+			</div>
+		</main>
+	</body>
+</html>
