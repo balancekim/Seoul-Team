@@ -2,9 +2,9 @@ package com.green.nowon.domain.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmailRepository extends JpaRepository<Emailauth,Long>{
+public interface AuthRepository extends JpaRepository<FindAuth,Long>{
 
-	Emailauth findByEmail(String userEmail);
+	FindAuth findByEmail(String userEmail);
 
 
 

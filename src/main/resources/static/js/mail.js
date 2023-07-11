@@ -20,12 +20,7 @@ if(mail==true){
       alert("인증번호가 발송되었습니다");
  		$("#userEmail").attr("readonly",true)
  		$('#emailchecked-button').css("display","inline");
-    },
-    error: function(){
-      
     }
-
-	
   });
 }else{
 	alert('이메일을 다시 입력해주세요');

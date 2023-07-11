@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security">
 <head>
+<meta name="_csrf" th:content="${_csrf.token}">
+	<meta name="_csrf_header" th:content="${_csrf.headerName}">
 	<link rel="stylesheet" href="/css/header.css">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
 	</style>
+	
 </head>
 	<header id="logo" style="position: relative;width: 900px;margin:0 auto;">
 		<div class="wrap view-size">
