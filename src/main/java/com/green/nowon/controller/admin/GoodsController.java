@@ -3,6 +3,7 @@ package com.green.nowon.controller.admin;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,4 +44,10 @@ public class GoodsController {
 		return true;
 	}
 
+	@ResponseBody
+	@GetMapping("/admin/goods/list")
+	public ModelAndView list(Model model) {
+		service.listProcess(model);
+		return new ModelAndView("admin/goods/list");
+	}
 }

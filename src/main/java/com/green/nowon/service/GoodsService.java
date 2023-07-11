@@ -1,6 +1,9 @@
 package com.green.nowon.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.green.nowon.domain.dto.GoodsSaveDTO;
 import com.green.nowon.domain.dto.S3UploadDTO;
@@ -44,6 +47,12 @@ public class GoodsService {
 		//이미지 temp-> upload 버킷으로 이동 후 temp 정리
 		fileService.clearTemp();
 		
+	}
+
+
+	public void listProcess(Model model) {
+		List<GoodsEntity> result= repo.findAll();
+		model.addAttribute("list", result);
 	}
 
 }
