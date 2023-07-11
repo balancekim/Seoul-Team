@@ -44,7 +44,6 @@ public class MailServiceProcess implements MailService{
 	public int sendMail(String mail) {
 		 MimeMessage message = CreateMail(mail);
 	        javaMailSender.send(message);
-	        //System.out.println(mail);
 
 	        return number;
 	}

@@ -15,27 +15,34 @@
 			<section id="logod">
 				<h1>로고영역</h1>
 				<div class="wrap">
-					<a>비밀번호 확인</a>
-					<p>개인 정보 보호를 위해 비밀번호를 다시 한번 확인합니다.</p>
+					<a>아이디 찾기</a>
+					<p>회원님의 소중한 개인정보를 위하여 본인확인이 필요합니다.</p>
+					<p>회원가입시 등록한 이메일과 입력한 이메일이 같아야 인증번호를 받을 수 있습니다</p>
 					
 				</div>
 			</section>
 			<div class="wrap member-size">
 				<section id="login-form">
-					<h1>비밀번호 확인</h1>
 					<div class="wrap">
 						<form action="/userInfo" method="post" onsubmit="return loginCheck()">
 							<table>
 								<tr>
-									<th>아이디</th>
 									<td>
-										<span th:text="${#authentication.name}"></span>
+										<input type="text" name="name" placeholder="이름">
 									</td>
 								</tr>
 								<tr>
-									<th>비밀번호</th>
 									<td>
-										<input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요">
+										<input type="text" id="userEmail" name="email" placeholder="이메일" onblur="checkmail()">
+										<span id="emailal" style="color: #eb3b5a"></span>
+										<button onclick="sendAut()" id="auth-button" type="button">인증번호 보내기</button>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" placeholder="인증번호">
+										<span id="emailal2" style="color: #eb3b5a"></span>
+										<button onclick="AuthCheck()">인증번호 확인</button>
 									</td>
 								</tr>
 							</table>

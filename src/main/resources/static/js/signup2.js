@@ -18,7 +18,6 @@ function checkUserId(){
         type: 'post',
         data: {idBox: idBox},
         success: function (data) {
-			alert(data)
             
             if (data === "false") {
                 $('#id-dup-result').html('사용 가능한 아이디입니다.');
@@ -42,7 +41,6 @@ function checkUserId(){
 		},
     });
 }
-
 
 
 function checkPass(){

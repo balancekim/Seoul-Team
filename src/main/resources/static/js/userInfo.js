@@ -1,5 +1,7 @@
 let check_pw = (/^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/); // 비밀번호 유효성 검사 (영문 및 숫자 4-20글자)
 var check =false
+var emailCheck =false;
+var mail=false;
 function loginCheck(){
 	
     var userPw = $('#password').val();
@@ -53,7 +55,64 @@ function updateSubmit(){
 		return false;
 	}
 	
-
-        	  
-	
 }
+
+function checkmail(){
+
+	 var emailBox = $('#userEmail').val();
+	
+	if (emailBox == '' || emailBox == null) {
+    	 mail=false;  
+   				 } 
+	  $.ajax({
+        beforeSend: function (xhr) {
+           var header = $("meta[name='_csrf_header']").attr("content");
+           var token = $("meta[name='_csrf']").attr("content");
+           xhr.setRequestHeader(header, token);
+		},
+        url: '/email-check',
+        type: 'post',
+        data: {email: emailBox},
+        success: function (result) {
+            if (result === "false") {
+                alert("이메일이 존재하지 않습니다.");
+                emailCheck= true;
+                mail=true;
+            } else{
+                 alert("이메일이 일치합니다.");
+                emailCheck = false;
+                mail=false;
+            }
+        }
+    });
+	 
+
+}
+
+
+function sendAut(){
+	  var userEmail = $("#userEmail").val();
+  var token = $("meta[name='_csrf']").attr("content");
+  var header = $("meta[name='_csrf_header']").attr("content");
+
+ 
+if(mail==true){
+ $.ajax({
+    type: "POST",
+    url: "/mail-auth",
+    data: { userEmail: userEmail },
+ 	 beforeSend: function(xhr) {
+      xhr.setRequestHeader(header, token);
+      
+    },
+    success: function(result){
+      alert("인증번호가 발송되었습니다");
+    }
+  });
+}else{
+	alert('이메일을 다시 입력해주세요');
+}
+}
+
+
+

@@ -8,6 +8,8 @@ public interface EmailRepository extends JpaRepository<Emailauth,Long>{
 
 
 
+
+
 	
 
 
