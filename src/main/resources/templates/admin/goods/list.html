@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org" >
+	<section id="goodslist">
+		<h1>상품등록</h1>
+		<div class="wrap">
+			<p>상품조회 및 수정</p>
+			<hr>
+			<table>
+				<thead>
+					<tr>
+						<td>상품번호</td>
+						<td>상품명</td>
+						<td>가격</td>
+						<td>재고</td>
+						<td>생성일</td>
+					</tr>
+				</thead>
+				<tbody id="show">
+					<tr th:if="${#lists.isEmpty(list)}">
+						<th colspan="4">게시글이 존재하지 않습니다.</th>
+					</tr>
+					<!-- getter 필요함 -->
+					<tr th:each="list:${list}">
+						<td th:text="${list.no}">상품번호</td>
+						<td >
+							<a th:text="${list.title}" th:href="@{/list/{no} (no=${list.no})}">상품명</a>
+						</td>
+						<td th:text="${list.price}">가격</td>
+						<td th:text="${list.stock}">재고</td>
+						<td th:text="${list.createdDate.toLocalDate()}">생성일</td>	
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</html>

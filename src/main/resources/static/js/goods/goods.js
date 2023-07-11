@@ -1,6 +1,22 @@
 /**
  * 
  */
+$(function(){
+	var def=$(".main-img").attr("value");
+	$("#zoom").prop("src",def)	
+})
+
+
+
+function imgHover(target) {
+    $(".img-list .img").removeClass("main-img");
+    $(target).addClass("main-img");
+    var imgval=$(target).attr("value");
+    console.log(imgval)
+    $("#zoom").prop("src",imgval)
+    
+}
+
 
 function pay(btnTag){
 	var amount=$(btnTag).sibiling(".amount").val();
