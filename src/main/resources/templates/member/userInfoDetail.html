@@ -26,20 +26,34 @@
 					<div class="wrap">
 						<form action="/userUpdate" method="post" onsubmit="return updateSubmit()">
 							<table>
+								<tr th:if="${isSocial}">
+									<th>회원 유형</th>
+									<td>
+										<span>소셜 회원입니다.</span>
+									</td>
+								</tr>
+								<tr th:unless="${isSocial}">
+									<th>회원 유형</th>
+									<td>
+										<span >일반 회원입니다.</span>
+									</td>
+								</tr>
+								
 								<tr>
 									<th>아이디</th>
 									<td>
+										<input type="hidden" name="userId" th:value="${info.userId}">
 										<span th:text="${info.userId}"></span>
 									</td>
 								</tr>
-								<tr>
-									<th>비밀번호</th>
+								<tr th:unless="${isSocial}">
+									<th >비밀번호</th>
 									<td>
-										<input type="password" name="password" id="password"onchange="checkPw()" placeholder="신규비밀번호를 입력해주세요">
+										<input  type="password" name="password" id="password"onchange="checkPw()" placeholder="신규비밀번호를 입력해주세요">
 										<span id="pwWord" style="color: #eb3b5a"></span>
 									</td>
 								</tr>
-								<tr>
+								<tr th:unless="${isSocial}">
 									<th>비밀번호 확인</th>
 									<td>
 										<input type="password" id="passwordCheck" placeholder="신규비밀번호를 다시 입력해주세요"onchange="checkPw2()">

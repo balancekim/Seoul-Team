@@ -8,7 +8,9 @@ import com.green.nowon.domain.entity.UserEntity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+@ToString
 @Getter
 @Setter
 public class UserDTO {

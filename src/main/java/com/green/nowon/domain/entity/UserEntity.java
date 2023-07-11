@@ -17,11 +17,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.green.nowon.domain.dto.BoardUpdateDTO;
+import com.green.nowon.domain.dto.UserDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 @Getter
 @Builder
@@ -63,5 +69,10 @@ public class UserEntity implements Serializable{
 		    break; // 첫 번째 요소만 가져오고 반복문 종료
 		}
 		return roleName; 
+	}
+	public UserEntity updateUserInfo(UserDTO dto,PasswordEncoder pe) {
+		if(dto.getPassword()!=null)password=pe.encode(dto.getPassword());
+		liveIn=dto.getLiveIn();
+		return this;
 	}
 }

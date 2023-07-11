@@ -62,7 +62,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         UserEntity un = UserEntity.builder()
                 .userId(nickName)
                 .email(email)
-                .password(provider)
+                .password("1111")
                 .userName(username)
                 .liveIn(provider)
                 .build();

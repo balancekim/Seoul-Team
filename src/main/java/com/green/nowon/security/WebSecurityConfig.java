@@ -41,7 +41,8 @@ public class WebSecurityConfig {
 			authorize
 
 					.antMatchers("/css/*","/js/*","/images/*","/css/*/*").permitAll()
-					.antMatchers("/","/sign**","/board/**","/map*").permitAll() // ()안에 있는 요소들은 다 허가할게요
+					.antMatchers("/admin/**").hasRole("ADMIN")
+					.antMatchers("/*","/sign**","/board/**","/map*","/find*").permitAll() // ()안에 있는 요소들은 다 허가할게요
 					.antMatchers(HttpMethod.GET,"/board/*").permitAll() //get method 로 요청한 것만 허용한다
 					.antMatchers(HttpMethod.POST,"/board/*").permitAll() //post method 로 요청한 것만 허용한다 
 					.anyRequest() 
