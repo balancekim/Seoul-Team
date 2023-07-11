@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="/css/board/list.css">
+        <script>
+       
+        
+        </script>
+    </head>
+    <body>
+        <main>
+        	<h1>게시글페이지</h1>
+        	<div class="wrap view-size">
+        		<div class="content">
+	        		<p class="tit">공지사항 게시판</p>
+					<table>
+						<thead>
+							<tr>
+								<td>글번호</td>
+								<td>제목</td>
+								<td>조회수</td>
+								<td>작성일</td>
+							</tr>
+						</thead>
+						<tbody id="show">
+							<tr th:if="${#lists.isEmpty(list)}">
+								<th colspan="4">게시글이 존재하지 않습니다.</th>
+							</tr>
+							<!-- getter 필요함 -->
+							<tr th:each="board:${list}">
+								<td th:text="${board.no}">글번호</td>
+								<td >
+									<a th:text="${board.title}" th:href="@{/board/{no} (no=${board.no})}">제목</a>
+								</td>
+								<td th:text="${board.creator.userId}">작성자</td>
+								<td th:text="${board.view}">조회수</td>
+								<td >
+									<span th:if="${board.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${#temporals.format(board.updatedDate, 'HH : mm')}">오늘인경우 시간만</span>
+									<span th:unless="${board.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${board.updatedDate.toLocalDate()}">오늘이 아니면 날짜만</span>
+								</td>	
+							</tr>
+						</tbody>
+					</table>
+					<div id="main-footer">
+						<div id="page">
+							<th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+								<a th:if="${page != nowPage}" th:href="@{/board/list(page=${page - 1}, searchKeyword=${param.searchKeyword})}" th:text="${page}"></a>
+								<strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+							</th:block>
+						</div>
+						<form th:action="@{/board/list}" method="get">
+							<input type="text" name="searchKeyword">
+							<button type="submit">검색</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
