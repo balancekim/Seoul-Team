@@ -1,16 +1,15 @@
 package com.green.nowon.controller;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.green.nowon.domain.dto.UserDTO;
+import com.green.nowon.security.CustomDetails;
 import com.green.nowon.service.InfoService;
-import com.green.nowon.service.proc.InfoServiceProcess;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,10 +18,16 @@ import lombok.RequiredArgsConstructor;
 public class UserInfoController {
 	
 	private final InfoService service;
+	private final BCryptPasswordEncoder bc;
 	
-	//비밀번호 재확인 페이지로 이동
+	//비밀번호 재확인 페이지로 이동 ->소셜로그인인 경우 바로 개인정보 수정 페이지로
 	@GetMapping("/userPwCheck")
-	public String pwCheck() {
+	public String pwCheck(Authentication authentication) {
+		CustomDetails cd= (CustomDetails) authentication.getPrincipal();
+		String sns=cd.getPassword();
+		if(sns=="1111") {
+			return  "redirect:/userInfoDetail";
+		}
 		return "member/userInfo";
 	}
 	//개인정보 디테일 수정페이지 
@@ -33,7 +38,7 @@ public class UserInfoController {
 		return "member/userInfoDetail";
 	}
 
-	
+	//비밀번호 재확인 체크 프로세스
 	@PostMapping("/userInfo")
 	public String moveInfo(Authentication authentication,String password) {
 		String id=authentication.getName();
@@ -41,9 +46,11 @@ public class UserInfoController {
 		/* return "redirect:/userInfoDetail"; */
 		 return service.goInfo(id,pw); 
 	}
+	//수정 페이지
 	@PostMapping("/userUpdate")
 	public String update(UserDTO dto ) {
-		
-		return "redirect:/userInfoDetail"; 
+		/* System.out.println("ddddddddddd"+dto.toString()); */
+		service.updateInfo(dto);
+		return "redirect:/"; 
 	}
 }

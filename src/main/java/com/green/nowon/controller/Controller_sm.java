@@ -67,6 +67,7 @@ public class Controller_sm {
 	@PostMapping("/board/write")
 	public String saveProcess(Authentication authentication, BoardSaveDTO dto) {
 		
+		
 		boardService.boardSave(authentication.getName(), dto);
 		return "redirect:/board/list"; 
 	}
