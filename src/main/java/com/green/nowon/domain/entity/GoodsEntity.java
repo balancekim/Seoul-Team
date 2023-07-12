@@ -44,6 +44,8 @@ public class GoodsEntity {
 	@Column(nullable = false)
 	private int price;
 	@Column(nullable = false)
+	private int state;
+	@Column(nullable = false)
 	private int stock;
 	@Column(nullable = false)
 	private String content;
