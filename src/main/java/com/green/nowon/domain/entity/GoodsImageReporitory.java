@@ -1,5 +1,6 @@
 package com.green.nowon.domain.entity;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,11 @@ public interface GoodsImageReporitory extends JpaRepository<GoodsImageEntity, Lo
 	GoodsImageEntity findByGoodsAndDef(GoodsEntity goods, boolean def);
 
 	List<GoodsImageEntity> findAllByGoodsNo(long goodsNo);
+
+	Optional<GoodsImageEntity> findAllByGoodsNoAndDef(long no, boolean def);
+
+	List<GoodsImageEntity> findAllByDefAndGoodsNo(boolean def, long no);
+
 
 	
 }

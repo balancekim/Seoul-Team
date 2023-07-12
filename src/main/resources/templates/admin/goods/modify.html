@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org"  >
+<main>
+	<section id="goods-wrte" >
+		<h1>상품수정</h1>
+		<div class="wrap">
+			<p>상품수정 페이지</p>
+			<hr>
+			<form id="form-goods update-form">
+				<ul>
+					<li>
+						<label>카테고리</label>
+						<div class="category">
+							
+						</div>
+					</li>
+					<li>
+						<label>상품명</label>
+						<input type="text" name="title" th:value="${list.title}">
+					</li>
+					<li>
+						<label>정가</label>
+						<input type="text" name="cost" th:value="${list.cost}"><span>원</span>
+					</li>
+					<li>
+						<label>판매가</label>
+						<input type="text" name="price" th:value="${list.price}"><span>원</span>
+					</li>
+					<li>
+						<label>재고수량</label>
+						<input type="text" name="stock" th:value="${list.stock}"><span>개</span>
+					</li>
+					<li>
+						<label>상품이미지</label>
+						<div class="def-img">
+							<span>대표이미지</span>
+							<div class="img-wrap">
+								<label class="pre-img" th:style="|background-image: url('${imgsss.url}');|">
+									<input type="file"  onchange="updateImg(this)">
+								</label>
+								<input type="hidden" class="tempKey" name="tempKey">
+								<input type="hidden" class="orgName" name="orgName">
+								<input type="hidden" class="newName" name="newName">
+								<input type="hidden" class="def" name="def" value="true">
+								<button type="button" onclick="pictureDel(this)" >사진 제거</button>
+							</div>
+						</div>
+						<div>
+							<span>상품이미지</span>
+							<div class="img flex">
+								<th:block th:each="img:${imgs}">
+									<div class="img-wrap">
+										<label class="pre-img" th:style="|background-image: url('${img.url}');|">
+											<input type="file"  onchange="updateImg(this)">
+										</label>
+										<input type="hidden" class="tempKey" name="tempKey">
+										<input type="hidden" class="orgName" name="orgName">
+										<input type="hidden" class="newName" name="newName">
+										<input type="hidden" class="def" name="def" value="false">
+										<button type="button" onclick="pictureDel(this)">사진 제거</button>
+									</div>
+								</th:block>
+							</div>
+						</div>
+					</li>
+					<li>
+						<label>상세설명</label>
+						<textarea name="content"></textarea>
+					</li>
+					<li>
+						<button type="button" onclick="goodsSummited()">상품등록</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+	
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
+		$.ajax({
+			url:"/admin/category/list",
+			type:"PATCH",
+			success:function(result){
+				$("#form-goods .category").html(result);
+			}
+		});
+	</script>
+</main>
+</html>
