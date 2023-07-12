@@ -1,7 +1,10 @@
 let check_pw = (/^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/); // 비밀번호 유효성 검사 (영문 및 숫자 4-20글자)
 var check =false
 var emailCheck =false;
-var mail=false;
+var usermail=false;
+
+
+
 function loginCheck(){
 	
     var userPw = $('#password').val();
@@ -60,6 +63,7 @@ function updateSubmit(){
 function checkmail(){
 
 	 var emailBox = $('#userEmail').val();
+	 var nameBox = $('userName').val();
 	
 	if (emailBox == '' || emailBox == null) {
     	 mail=false;  
@@ -79,7 +83,7 @@ function checkmail(){
                 emailCheck= true;
                 mail=true;
             } else{
-                 alert("이메일이 일치합니다.");
+				usermail=result
                 emailCheck = false;
                 mail=false;
             }
@@ -96,7 +100,7 @@ function sendAut(){
   var header = $("meta[name='_csrf_header']").attr("content");
 
  
-if(mail==true){
+if(mail==false){
  $.ajax({
     type: "POST",
     url: "/mail-auth",
@@ -113,6 +117,29 @@ if(mail==true){
 	alert('이메일을 다시 입력해주세요');
 }
 }
+ 
+function idCheck(){
+	var nameBox = $('userName').val();
+	var emailBox = $('#userEmail').val();
+	var token = $("meta[name='_csrf']").attr("content");
+ 	var header = $("meta[name='_csrf_header']").attr("content");
+	
+	$.ajax({
+    type: "POST",
+    url: "/check-name-email",
+    data: {name:nameBox,email:emailBox},
+ 	 beforeSend: function(xhr) {
+      xhr.setRequestHeader(header, token);
+      
+    },
+    success: function(result){
+		if(result=="true"){
+			alert(result);
+		}else{
+			alert('이름 또는 이메일이 존재하지 않습니다.');
+			return false;
+		}
+    }
+  });
 
-
-
+}
