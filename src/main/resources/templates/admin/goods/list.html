@@ -23,7 +23,7 @@
 					<tr th:each="list:${list}">
 						<td th:text="${list.no}">상품번호</td>
 						<td >
-							<a th:text="${list.title}" th:href="|/admin/goods/${list.no}|">상품명</a>
+							<a th:text="${list.title}" th:href="|/admin/goods/${list.no}|" >상품명</a>
 						</td>
 						<td th:text="${list.price}">가격</td>
 						<td th:text="${list.stock}">재고</td>
@@ -35,15 +35,5 @@
 	</section>
 	<script type="text/javascript">
 	$("#show a").click(memuItemClicked);
-		function memuItemClicked(event){
-			event.preventDefault();
-			//a href 를 비동기요청
-			$.get(
-				$(this).attr("href"),
-				function(resultMain){
-					$("main>.wrap").html(resultMain);
-				}
-			);
-		}
 	</script>
 </html>
