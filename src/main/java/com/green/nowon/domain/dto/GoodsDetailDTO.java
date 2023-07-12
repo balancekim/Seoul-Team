@@ -9,6 +9,7 @@ public class GoodsDetailDTO {
 
 	private long no;
 	private String title;
+	private int state;
 	private int cost;
 	private int price;
 	private int stock;
@@ -16,6 +17,7 @@ public class GoodsDetailDTO {
 	public GoodsDetailDTO(GoodsEntity e) {
 		this.no = e.getNo();
 		this.title = e.getTitle();
+		this.state = e.getState();
 		this.cost = e.getCost();
 		this.price = e.getPrice();
 		this.stock = e.getStock();

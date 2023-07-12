@@ -7,7 +7,7 @@ $(function(){
 	//관리자페이지 메뉴클릭시 컨트롤러
 	$(".menu-wrap a").click(memuItemClicked);
 	
-	$("#show a").click(memuItemClicked);
+	
 	
 	
 });

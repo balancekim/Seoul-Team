@@ -59,13 +59,13 @@ public class GoodsService {
 		
 	}
 
-
+	//상품 리스트 페이지용 정보 불러오기
 	public void listProcess(Model model) {
 		List<GoodsEntity> result= repo.findAll();
 		model.addAttribute("list", result);
 	}
 
-
+	//상품 상세 정보 
 	public void detailProcess(long no, Model model) {
 		//1. 상세정보
 		GoodsDetailDTO detail=repo.findAllByNo(no)
