@@ -33,9 +33,9 @@
 							<tr th:each="board:${list}">
 								<td th:text="${board.no}">글번호</td>
 								<td >
-									<a th:text="${board.title}" th:href="@{/board/{no} (no=${board.no})}">제목</a>
+									<a th:text="${board.title}" th:href="@{/notice-board/{no} (no=${board.no})}">제목</a>
 								</td>
-								<td th:text="${board.creator.userId}">작성자</td>
+								
 								<td th:text="${board.view}">조회수</td>
 								<td >
 									<span th:if="${board.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${#temporals.format(board.updatedDate, 'HH : mm')}">오늘인경우 시간만</span>

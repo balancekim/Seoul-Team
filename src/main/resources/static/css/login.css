@@ -114,3 +114,14 @@ main>.wrap{
 	background-size:110px 30px;
 	background-repeat: no-repeat;
 }
+
+#login-form > div > section > div:not(:first-child):before{
+	content: "|";
+	margin-right: 0px;
+	font-size: 11px;
+	color: #a9a9a9;
+	vertical-align: top;
+}
+
+
+

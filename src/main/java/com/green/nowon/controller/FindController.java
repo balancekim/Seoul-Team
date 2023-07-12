@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,6 +27,8 @@ public class FindController {
 	private final EmailRepository repository;
 	private final UserEntityRepository userRepository;
 	
+
+	
 	@ResponseBody
 	@PostMapping("/email-check")
 	public String emailCheck(@RequestParam("email") String email) {
@@ -35,21 +38,16 @@ public class FindController {
 	
 	@ResponseBody
 	@PostMapping("/mail-auth")
-	public String sendAuth(@RequestParam("userEmail") String userEmail) {
+	public void sendAuth(@RequestParam("userEmail") String userEmail) {
 		int number=emailService.sendMail(userEmail);
 		String authnum=""+number;
 
 		
 		 Emailauth existingData = repository.findByEmail(userEmail);
 		 
-		 Optional<UserEntity> result=userRepository.findByEmail(userEmail);
-			if(result.isPresent()) {
-				return "true";
-			}else {
-			return "false";
-			}
+		
 		 
-			/*
+			
 		 if (existingData != null) {
 		        repository.delete(existingData);
 		    }
@@ -60,7 +58,20 @@ public class FindController {
 				.email(userEmail)
 				.createdTIme(LocalDateTime.now())
 				.build());
-		*/
+		
+	}
+	
+	
+	@ResponseBody
+	@PostMapping("/check-name-email")
+	public String checkIdName(@RequestParam("name") String name, @RequestParam("email") String email) {
+		return service.findIdName(name,email);
+	}
+	
+	@ResponseBody
+	@PostMapping("/check-id")
+	public String checkId(@RequestParam("userId") String id) {
+		return service.findId(id);
 	}
 	
 	

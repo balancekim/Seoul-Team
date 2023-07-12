@@ -3,8 +3,8 @@
 	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
 	<head>
 		 <link rel="stylesheet" href="/css/userInfo.css"> 
-
 		<script src="/js/userInfo.js"></script>
+		<script src="/js/mail.js"></script>
 		<style type="text/css">
 		
 		</style>
@@ -24,25 +24,23 @@
 			<div class="wrap member-size">
 				<section id="login-form">
 					<div class="wrap">
-						<form action="/userInfo" method="post" onsubmit="return loginCheck()">
+						<form action="/userInfo" method="post" onsubmit="return idCheck()">
 							<table>
 								<tr>
 									<td>
-										<input type="text" name="name" placeholder="이름">
+										<input type="text" name="name" id="userName" placeholder="이름">
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<input type="text" id="userEmail" name="email" placeholder="이메일" onblur="checkmail()">
-										<span id="emailal" style="color: #eb3b5a"></span>
 										<button onclick="sendAut()" id="auth-button" type="button">인증번호 보내기</button>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<input type="text" placeholder="인증번호">
-										<span id="emailal2" style="color: #eb3b5a"></span>
-										<button onclick="AuthCheck()">인증번호 확인</button>
+										<input type="text" id="email-check" placeholder="인증번호">
+										<button onclick="EmailcheckedButton()" type="button">인증번호 확인</button>
 									</td>
 								</tr>
 							</table>

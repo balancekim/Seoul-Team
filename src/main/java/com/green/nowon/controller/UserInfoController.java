@@ -38,18 +38,9 @@ public class UserInfoController {
 		return "member/userInfoDetail";
 	}
 
-	//비밀번호 재확인 체크 프로세스
-	@PostMapping("/userInfo")
-	public String moveInfo(Authentication authentication,String password) {
-		String id=authentication.getName();
-		String pw=password;
-		/* return "redirect:/userInfoDetail"; */
-		 return service.goInfo(id,pw); 
-	}
 	//수정 페이지
 	@PostMapping("/userUpdate")
 	public String update(UserDTO dto ) {
-		/* System.out.println("ddddddddddd"+dto.toString()); */
 		service.updateInfo(dto);
 		return "redirect:/"; 
 	}

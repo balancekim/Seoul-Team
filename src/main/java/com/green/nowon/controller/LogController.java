@@ -55,6 +55,8 @@ public class LogController {
 		return service.login(dto);
 	}
 	
+	
+	
 	@ResponseBody
 	@PostMapping("/memberIdCheck")
 	public String signupcheck(@RequestParam("idBox")String idBox) {

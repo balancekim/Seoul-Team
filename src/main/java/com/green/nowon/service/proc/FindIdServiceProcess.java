@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.green.nowon.domain.dto.FindIdDTO;
 import com.green.nowon.domain.entity.UserEntity;
 import com.green.nowon.domain.entity.UserEntityRepository;
 import com.green.nowon.service.FindIdService;
@@ -25,5 +26,27 @@ public class FindIdServiceProcess implements FindIdService {
 		return "false";
 		}
 	}
+
+	@Override
+	public String findIdName(String name, String email) {
+		Optional<UserEntity> result=repository.findByUserNameAndEmail(name,email);
+		if(result.isPresent()) {
+			return "true";
+		}else {
+			return "false";
+		}
+	}
+
+	@Override
+	public String findId(String id) {
+		Optional<UserEntity> result=repository.findByUserId(id);
+		if(result.isPresent()) {
+			return "true";
+		}else {
+			return "false";
+		}
+	}
+
+
 
 }
