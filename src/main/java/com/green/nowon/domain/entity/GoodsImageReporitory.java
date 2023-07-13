@@ -22,5 +22,6 @@ public interface GoodsImageReporitory extends JpaRepository<GoodsImageEntity, Lo
 	List<GoodsImageEntity> findAllByDefAndGoodsNo(boolean def, long no);
 
 
+
 	
 }

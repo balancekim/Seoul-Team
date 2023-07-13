@@ -14,6 +14,7 @@
 						<td>재고</td>
 						<td>판매상태</td>
 						<td>생성일</td>
+						<td>삭제</td>
 					</tr>
 				</thead>
 				<tbody id="show">
@@ -29,10 +30,13 @@
 						<td th:text="${list.price}">가격</td>
 						<td th:text="${list.stock}">재고</td>
 						<td>
-							<span th:if="${list.state == '1'}">판매함</span>
-							<span th:if="${list.state == '0'}">판매안함</span>
+							<span th:if="${list.state == 1}">판매함</span>
+							<span th:if="${list.state == 0}">판매안함</span>
 						</td>
 						<td th:text="${list.createdDate.toLocalDate()}">생성일</td>	
+						<td >
+							<a th:href="|/admin/goods/del/${list.no}|">삭제</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -40,5 +44,6 @@
 	</section>
 	<script type="text/javascript">
 	$("#show a").click(memuItemClicked);
+	
 	</script>
 </html>

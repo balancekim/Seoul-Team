@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,5 +58,10 @@ public class GoodsController {
 	public ModelAndView detail(@PathVariable long no ,Model model) {
 		service.detailProcess(no, model);
 		return new ModelAndView("admin/goods/modify");
+	}
+	
+	@DeleteMapping("/admin/goods/del/{no}")
+	public void delete(@PathVariable long no) {
+		service.deleteProcess(no);
 	}
 }

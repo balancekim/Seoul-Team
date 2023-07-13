@@ -17,6 +17,9 @@ public interface GoodsRepository extends JpaRepository<GoodsEntity, Long>{
 
 	Optional<GoodsEntity> findAllByNo(long goodsNo);
 
+	void deleteByNo(long no);
+
+
 
 
 }

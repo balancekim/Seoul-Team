@@ -86,6 +86,11 @@ public class GoodsService {
 		
 	}
 
+	public void deleteProcess(long no) {
+		repo.deleteById(no);
+		
+	}
+
 
 
 }

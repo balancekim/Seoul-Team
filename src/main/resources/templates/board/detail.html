@@ -99,9 +99,6 @@
 								</div>
 							</th:block>
 						</div>
-						<div sec:authorize="hasRole('ADMIN')">
-							<a href="">글삭제</a>
-						</div>
 					</div>
 					<!-- 댓글 작성 부분 -->
 					<form id="comment-write" th:action="@{/comment/write/{no} (no=${board.no})}" method="post">
