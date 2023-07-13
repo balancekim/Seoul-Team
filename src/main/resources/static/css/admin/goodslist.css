@@ -1,69 +1,26 @@
 @charset "UTF-8";
 
-#goodsList {
-  margin: 50px auto;
-  max-width: 800px;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+#goodslist {
+  width: 600px;
 }
 
-#goodsList h1 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+#goodslist > div.wrap {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-#goodsList .wrap {
-  margin: 20px;
-}
-
-#goodsList p {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-#goodsList hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-#goodsList table {
+#goodslist table {
   width: 100%;
-  border-collapse: collapse;
 }
 
-#goodsList thead th {
-  background-color: #333;
-  color: #fff;
+#goodslist table td {
   padding: 10px;
 }
 
-#goodsList tbody td {
-  padding: 10px;
-  text-align: center;
+#goodslist table thead {
+  background-color: #f5f5f5;
 }
 
-#goodsList tbody tr:nth-child(even) {
+#goodslist table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
-}
-
-#goodsList tbody tr:hover {
-  background-color: #eaeaea;
-}
-
-#goodsList th[colspan="4"] {
-  text-align: center;
-}
-
-#goodsList a {
-  color: #333;
-  text-decoration: none;
-}
-
-#goodsList a:hover {
-  text-decoration: underline;
 }

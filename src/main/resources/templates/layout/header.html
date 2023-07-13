@@ -18,6 +18,7 @@
 	        	<a href="/login" >로그인</a>
 	        	<span style="color:#c9c9c9;"> |</span>
 	        	<a href="/signup">회원가입</a>
+	        	
 			</span>
 	       	<div sec:authorize="isAuthenticated()" class="flex">
 		        <span th:text="${#authentication.name}"></span>

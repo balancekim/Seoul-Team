@@ -16,6 +16,7 @@ public class GoodsSaveDTO {
 	private int cost;
 	private int price;
 	private int stock;
+	private int state;
 	private String content;
 	
 	private int cateNo;
@@ -42,7 +43,7 @@ public class GoodsSaveDTO {
 
 	public GoodsEntity toEntity() {
 		return GoodsEntity.builder()
-				.title(title).cost(cost).price(price).stock(stock).content(content).category(CategoryEntity.builder().no(cateNo).build())
+				.title(title).cost(cost).price(price).stock(stock).state(state).content(content).category(CategoryEntity.builder().no(cateNo).build())
 				.build();
 	}
 	

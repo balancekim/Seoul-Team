@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.green.nowon.domain.dto.BoardUpdateDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -49,6 +51,18 @@ public class NoticeEntity {
 	
 	@Column(columnDefinition = "integer default 0", nullable=false)
 	private int view;
+	
+	public NoticeEntity updateTitleOrContent(BoardUpdateDTO dto) {
+		if(dto.getTitle()!=null)title=dto.getTitle();
+		if(dto.getContent()!=null)content=dto.getContent();
+		if(dto.getUpdatedDate()!=null)updatedDate=dto.getUpdatedDate();
+		return this;
+	}
+	
+	public NoticeEntity incrementView() {
+		view++;
+		return this;
+	}
 	
 	
 	

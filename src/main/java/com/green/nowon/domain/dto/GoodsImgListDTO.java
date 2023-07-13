@@ -18,14 +18,7 @@ public class GoodsImgListDTO {
 		return this;
 	}
 
-
-	public GoodsImgListDTO GoodsImgListDTO(GoodsImageEntity e, String domain) {
-		this.bucketKey = e.getBucketKey();
-		this.url=domain+bucketKey;
-		return this;
-	}
-
-
+	//상세정보 이미지 
 	public GoodsImgListDTO(GoodsImageEntity dto, String domain) {
 		this.url=domain+dto.getBucketKey();
 		this.def=dto.isDef();

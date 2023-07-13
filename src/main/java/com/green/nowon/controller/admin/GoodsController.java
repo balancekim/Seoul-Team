@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,11 +44,18 @@ public class GoodsController {
 		//System.out.println(dto);
 		return true;
 	}
-
+	//admin 상품리스트 페이지
 	@ResponseBody
 	@GetMapping("/admin/goods/list")
 	public ModelAndView list(Model model) {
 		service.listProcess(model);
 		return new ModelAndView("admin/goods/list");
+	}
+	//admin 상품 수정 페이지로 이동
+	@ResponseBody
+	@GetMapping("/admin/goods/{no}")
+	public ModelAndView detail(@PathVariable long no ,Model model) {
+		service.detailProcess(no, model);
+		return new ModelAndView("admin/goods/modify");
 	}
 }

@@ -19,7 +19,7 @@
  */
 
 #info-list  li:not(:first-child) {
-	padding:15px 0px;
+	padding:15px 0px 15px 10px;
 }
 #info-list  li:last-child {
 	border-bottom: 3px INSET;
@@ -29,4 +29,9 @@
 }
 #info-list img{
 	cursor: pointer;
+}
+.subject{padding-right: 400px;}
+
+.semi-list:hover{
+	background-color: #e9e9e9;
 }

@@ -6,6 +6,10 @@ $(function(){
 	$(".menu").click(memuClicked);
 	//관리자페이지 메뉴클릭시 컨트롤러
 	$(".menu-wrap a").click(memuItemClicked);
+	
+	
+	
+	
 });
 //메뉴 목록 클릭시 처리 a 태그
 function memuItemClicked(event){
