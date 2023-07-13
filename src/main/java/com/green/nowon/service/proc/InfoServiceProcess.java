@@ -30,8 +30,8 @@ public class InfoServiceProcess implements InfoService {
 			//조회 결과가 있다면
 			UserEntity userEntity = byUserId.get(); 
 			String savedPw = userEntity.getPassword();
-			String inputPw = pw;
-			 System.out.println( pe.matches(pw, savedPw));
+			
+			System.out.println( "!!!!!!!!!!!!!!!!!"+pe.matches(pw, savedPw));
 				
 			if( pe.matches(pw, savedPw)) {
 				//비밀번호 일치
@@ -51,14 +51,14 @@ public class InfoServiceProcess implements InfoService {
 	//개인정보 수정 페이지 이동
 	@Override
 	public void infoList(Model model,String id) {
-		Optional<UserEntity> entity=repository.findByUserId(id);
-		UserEntity un=entity.get();
+		UserEntity entity=repository.findByUserId(id).orElseThrow();
+		/* UserEntity un=entity.get(); */
 		
-		model.addAttribute("info",un);
+		model.addAttribute("info",entity);
 		
 		//일반회원이면 비밀번호 수정 칸 띄우고 소셜 회원이면 비밀번호 수정칸 안보이게 하기위해 소셜로그인인지 아닌지 확인
 		boolean isSocial= false;
-		if(pe.matches("1111", un.getPassword())) {
+		if(pe.matches("1111", entity.getPassword())) {
 			isSocial=true;
 		}
 		

@@ -10,6 +10,7 @@ function titleClicked(event){
 	$.get(
 		$(this).attr("href"),
 		function(resultMain){
+			
 			$("main>.wrap").html(resultMain);
 		}
 	);

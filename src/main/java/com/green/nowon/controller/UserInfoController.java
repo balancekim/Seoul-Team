@@ -38,6 +38,14 @@ public class UserInfoController {
 		return "member/userInfoDetail";
 	}
 
+	//수정 페이지 ㄱㄱ
+	@PostMapping("/go-info")
+	public String goInfo(Authentication authentication,String password) {
+		String id=authentication.getName();
+		
+		return service.goInfo(id, password);
+	}
+	
 	//수정 페이지
 	@PostMapping("/userUpdate")
 	public String update(UserDTO dto ) {
