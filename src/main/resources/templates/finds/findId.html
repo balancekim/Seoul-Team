@@ -35,12 +35,14 @@
 									<td>
 										<input type="text" id="userEmail" name="email" placeholder="이메일" onblur="checkmail()">
 										<button onclick="sendAut()" id="auth-button" type="button">인증번호 보내기</button>
+										<input type="checkbox" id="qwe123">
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<input type="text" id="email-check" placeholder="인증번호">
 										<button onclick="EmailcheckedButton()" type="button">인증번호 확인</button>
+										<input type="checkbox" id="asd123">
 									</td>
 								</tr>
 							</table>
@@ -48,7 +50,6 @@
 								<input type="hidden" th:name="${_csrf.parameterName}"
 									th:value="${_csrf.token}"/>
 								<button type="submit">확인</button>
-								<button type="button" onclick="goHome()">메인으로</button>
 							</div>
 							<div id="wrongmessage">
 							</div>

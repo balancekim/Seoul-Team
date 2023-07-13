@@ -75,4 +75,9 @@ public class UserEntity implements Serializable{
 		liveIn=dto.getLiveIn();
 		return this;
 	}
+	
+	public UserEntity updatePassword(String pass,PasswordEncoder pe) {
+		this.password=pe.encode(pass);
+		return this;
+	}
 }
