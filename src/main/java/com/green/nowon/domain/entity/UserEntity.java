@@ -70,9 +70,11 @@ public class UserEntity implements Serializable{
 		}
 		return roleName; 
 	}
+	//회원정보 수정
 	public UserEntity updateUserInfo(UserDTO dto,PasswordEncoder pe) {
 		if(dto.getPassword()!=null)password=pe.encode(dto.getPassword());
 		liveIn=dto.getLiveIn();
 		return this;
 	}
+	
 }
