@@ -3,7 +3,10 @@ function checkId(){
 	var token = $("meta[name='_csrf']").attr("content");
  	var header = $("meta[name='_csrf_header']").attr("content");
 	
-
+	if(id==null||id==''){
+		alert('아이디를 입력해주세요');
+		return false;
+	}
 	
 	$.ajax({
 		beforeSend: function(xhr) {
@@ -45,4 +48,20 @@ function sendAuthPass(){
 	alert('이메일을 다시 입력해주세요');
 }
 
+}
+
+
+function passResult(){
+	var id=$('#user-id').val();
+	var userEmail = $("#userEmail").val();
+	
+	if(id==null||id==''){
+		alert('아이디를 입력해주세요');
+		return false;
+	}
+	
+	if(userEmail==null||userEmail==''){
+		alert('아이디를 입력해주세요');
+		return false;
+	}
 }

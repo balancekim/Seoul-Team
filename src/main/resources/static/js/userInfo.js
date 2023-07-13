@@ -119,29 +119,29 @@ function sendAut() {
 }
 
 function idCheck() {
-	var nameBox = $('userName').val();
+	var nameBox = $('#userName').val();
 	var emailBox = $('#userEmail').val();
-	var token = $("meta[name='_csrf']").attr("content");
-	var header = $("meta[name='_csrf_header']").attr("content");
+	var code = $("#email-check").val();
+	
+	if(nameBox==null||nameBox==''){
+		alert('이름를 입력해주세요');
+		return false;
+	}
+	
+	if(emailBox==null||emailBox==''){
+		alert('이메일 입력해주세요');
+		return false;
+	}
+	
+	if(code==null||code==''){
+		alert('인증번호를 입력해주세요');
+		return false;
+	}
 
-		$.ajax({
-			type: "POST",
-			url: "/check-name-email",
-			data: { name: nameBox, email: emailBox },
-			beforeSend: function(xhr) {
-				xhr.setRequestHeader(header, token);
-
-			},
-			success: function(result) {
-
-				if (result == "true") {
-					alert(result);
-				} else {
-					alert('이름 또는 이메일이 존재하지 않습니다.');
-					return false;
-				}
-
-			}
-		});
+	if(email_code!=authcode){
+		alert("인증번호가 다릅니다");	
+        $('#email-check').focus();
+        return false;
+	}
 
 	}
