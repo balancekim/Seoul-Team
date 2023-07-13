@@ -33,8 +33,6 @@ function EmailcheckedButton(){
   var token = $("meta[name='_csrf']").attr("content");
   var header = $("meta[name='_csrf_header']").attr("content");
   var code = $("#email-check").val();
-	var check=$("input[type=checkbox]").prop("checked").length;
-	console.log(check) 
 
  $.ajax({
     type: "POST",
@@ -49,13 +47,12 @@ function EmailcheckedButton(){
 		authcode=mailcode
 	if(code==mailcode){
 		alert("인증이 완료되었습니다");		
-		$("#asd123").prop("checked","checked")
 
 	}else{
 		alert("인증번호가 다릅니다");
 		
 	}
-    },
+    }
 	
   });
 
