@@ -23,7 +23,7 @@
 					<tr th:each="list:${list}">
 						<td th:text="${list.no}">상품번호</td>
 						<td >
-							<a th:text="${list.title}" th:href="@{/list/{no} (no=${list.no})}">상품명</a>
+							<a th:text="${list.title}" th:href="|/admin/goods/${list.no}|" >상품명</a>
 						</td>
 						<td th:text="${list.price}">가격</td>
 						<td th:text="${list.stock}">재고</td>
@@ -33,4 +33,7 @@
 			</table>
 		</div>
 	</section>
+	<script type="text/javascript">
+	$("#show a").click(memuItemClicked);
+	</script>
 </html>

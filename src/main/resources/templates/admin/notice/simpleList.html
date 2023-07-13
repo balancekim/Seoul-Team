@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<link rel="stylesheet" href="/css/info-list.css">
+</head>
+	<main>
+		<ul>
+   			<li style="padding-bottom: 10px;" class="flex between">
+   				<sapn style="font-size:25px;padding-top: 15px;">공지사항</sapn>
+   				<a href="/notice-board/list" title="공지사항 게시판으로 이동합니다.">
+   					<img  id="info-img" src="images/common/add_box_FILL0_wght400_GRAD0_opsz48.png" 	>
+   				</a>
+   			</li>
+   			<th:block th:each="dto:${list}" >
+    			<li class="flex between semi-list">
+    				<sapn th:text="${dto.no}">공지사항 넘버</sapn>
+    				<a class="subject" th:text="${dto.title}" th:href="@{/notice-board/{no} (no=${dto.no})}">제목</a>
+    				<span th:if="${dto.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${#temporals.format(dto.updatedDate, 'HH : mm')}">오늘인경우 시간만</span>
+					<span th:unless="${dto.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${dto.updatedDate.toLocalDate()}">오늘이 아니면 날짜만</span>
+    			</li>
+   			</th:block>
+   			
+   		</ul>
+	</main>
+</html>

@@ -28,7 +28,7 @@ public class GoodsBoardServiceProcess implements GoodsBoardService {
 	@Value("${cloud.aws.s3.domain}")
 	private String domain;
 	
-	
+	//상품리스트 페이지
 	@Override
 	public void listProcess(Model model) {
 		model.addAttribute("list", repo.findAll().stream()
@@ -38,6 +38,7 @@ public class GoodsBoardServiceProcess implements GoodsBoardService {
 	);
 	}
 
+	//상품페이지 detail 내용
 	@Override
 	public void detailProcess(long goodsNo, Model model) {
 		//1. 상세정보
@@ -46,7 +47,7 @@ public class GoodsBoardServiceProcess implements GoodsBoardService {
 				.orElseThrow();
 		//System.out.println("detail : "+detail);
 		model.addAttribute("detail", detail);
-		
+		//2. 상세정보 이미지
 		List<GoodsImgListDTO> imgs=gIRepo.findAllByGoodsNo(goodsNo).stream()
 				.map(dto-> new GoodsImgListDTO(dto,domain)).collect(Collectors.toList());
 		
