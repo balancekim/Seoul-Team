@@ -83,7 +83,6 @@ function checkmail() {
 				emailCheck = true;
 				mail = true;
 			} else {
-				$("#qwe123").prop("checked","checked")
 				usermail = result
 				emailCheck = false;
 				mail = false;
@@ -125,10 +124,6 @@ function idCheck() {
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
 
-	if(check<2){
-		alert("입력해주세요");
-		return false;
-	}else{
 		$.ajax({
 			type: "POST",
 			url: "/check-name-email",
@@ -150,6 +145,3 @@ function idCheck() {
 		});
 
 	}
-			
-
-}
