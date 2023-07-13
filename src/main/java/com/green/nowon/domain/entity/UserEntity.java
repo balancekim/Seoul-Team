@@ -77,4 +77,9 @@ public class UserEntity implements Serializable{
 		return this;
 	}
 	
+	public UserEntity updatePassword(String pass,PasswordEncoder pe) {
+		this.password=pe.encode(pass);
+		return this;
+	}
+
 }

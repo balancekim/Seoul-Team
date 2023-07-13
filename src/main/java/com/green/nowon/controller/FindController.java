@@ -3,6 +3,9 @@ package com.green.nowon.controller;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +29,7 @@ public class FindController {
 	private final MailService emailService;
 	private final EmailRepository repository;
 	private final UserEntityRepository userRepository;
+	private final PasswordEncoder pe;
 	
 
 	
@@ -74,6 +78,15 @@ public class FindController {
 		return service.findId(id);
 	}
 	
-	
+	@Transactional
+	@ResponseBody
+	@PostMapping("/pass-auth")
+	public void sendPassAuth(@RequestParam("userEmail") String email) {
+		
+		String authpass=emailService.mail(email);
+		UserEntity existedData=userRepository.findByEmail(email).orElseThrow();
+		existedData.updatePassword(authpass,pe);
+		
+	}
 }
 
