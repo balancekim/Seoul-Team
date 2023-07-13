@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
-	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
+	th:replace="~{ layout/layout2 :: basic(~{this::head},~{::main}) }">
 	<head>
 		 <link rel="stylesheet" href="/css/userInfo.css"> 
 
@@ -24,7 +24,7 @@
 				<section id="login-form">
 					<h1>비밀번호 확인</h1>
 					<div class="wrap">
-						<form action="/userInfo" method="post" onsubmit="return idCheck()">
+						<form action="/userInfo" method="post" onsubmit="return passResult()">
 							<table>
 								<tr>
 									<td>
@@ -41,9 +41,7 @@
 							<div class="btn flex between ">
 								<input type="hidden" th:name="${_csrf.parameterName}"
 									th:value="${_csrf.token}"/>
-								<button type="button" onclick="goHome()">로그인</button>
-							</div>
-							<div id="wrongmessage">
+								<button type="submit">홈으로</button>
 							</div>
 						</form>
 					</div>
