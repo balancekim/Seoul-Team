@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="//www.thymeleaf.org" >
-	<section>
+	<section id="categoryListPage">
 		<h1>카테고리</h1>
 		<div class="wrap">
 			<p>카테고리 목록</p>
 			<hr>
-			<ul>
-				<li th:each="dto : ${list}">
-					<span th:text="${dto.no}">카테고리번호</span>
-					<span th:text="${dto.name}">카테고리이름</span>
-				</li>
-			</ul>
+			<table>
+				<thead>
+					<tr>
+						<td>카테고리 번호</td>
+						<td>카테고리 이름</td>
+						<td>삭제</td>
+					</tr>
+				</thead>
+				<tbody id="show" class="categoryList">
+					<tr th:if="${#lists.isEmpty(list)}">
+						<th colspan="4">카테고리가 존재하지 않습니다.</th>
+					</tr>
+					<!-- getter 필요함 -->
+					<tr th:each="list:${list}">
+						<td th:text="${list.no}">카테고리번호</td>
+						<td th:text="${list.name}">카테고리이름</td>
+						
+						<td>
+							<a class="del" th:href="|/admin/category/del/${list.no}|">삭제</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</section>
+	<script type="text/javascript">
+	$(".categoryList .del").click(categoryDel);
+	
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$(document).ajaxSend(function(e, xhr, options) {
+		xhr.setRequestHeader(header, token);
+	});
+	
+	function categoryClicked(event){
+		event.preventDefault();
+		
+		$.ajax({
+			url: "/admin/category/del/${list.no}",
+			type: "DELETE",
+			
+		})
+	}
+	</script>
+	
 </html>

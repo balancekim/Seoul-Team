@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+
+#goods-modify {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#goods-modify h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#goods-modify .wrap {
+  margin-top: 20px;
+}
+
+#goods-modify p {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#goods-modify hr {
+  margin-top: 10px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+#goods-modify form {
+  margin-top: 20px;
+}
+
+#goods-modify form div {
+  margin-bottom: 10px;
+}
+
+#goods-modify form label {
+  font-weight: bold;
+}
+
+#goods-modify form input[type="text"],
+#goods-modify form textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+#goods-modify form select {
+  width: 100%;
+  padding: 5px;
+}
+
+#goods-modify form span {
+  margin-left: 5px;
+}
+
+#goods-modify form button[type="submit"] {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#goods-modify form button[type="submit"]:hover {
+  background-color: #555;
+}

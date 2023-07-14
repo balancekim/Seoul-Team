@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.green.nowon.domain.dto.GoodsListDTO;
+import com.green.nowon.domain.dto.GoodsUpdateDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -65,6 +66,14 @@ public class GoodsEntity {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<GoodsImageEntity> Images;
 
-	
+	public GoodsEntity update(GoodsUpdateDTO dto) {
+		if(!this.title.equals(dto.getTitle()))this.title=dto.getTitle();
+		if(!(this.price==dto.getPrice()))this.price=dto.getPrice();
+		if(!(this.stock==dto.getStock()))this.stock=dto.getStock();
+		if(!this.content.equals(dto.getContent()))this.content=dto.getContent();
+		if(!(this.state==dto.getState()))this.state=dto.getState();
+		
+		return this;
+	}
 	
 }
