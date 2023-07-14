@@ -7,6 +7,7 @@ $(function(){
 
 function editClick(){
 	var udwrap=$(this).parents(".udwrap");
+	$(".content").hide();
 	udwrap.find(".update").hide();
 	udwrap.find('.form-update').show();
 }
