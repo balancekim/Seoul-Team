@@ -39,6 +39,6 @@ public class FindIdPwController {
 		UserEntity result=repository.findByEmail(dto.getEmail()).orElseThrow();
 		String ad=result.getUserId();
 		model.addAttribute("list", ad);
-		return "/finds/findIdResult";
+		return "redirect:/";
 	}
 }
