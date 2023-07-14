@@ -29,8 +29,8 @@
 						<td th:text="${list.price}">가격</td>
 						<td th:text="${list.stock}">재고</td>
 						<td>
-							<span th:if="${list.state == '1'}">판매함</span>
-							<span th:if="${list.state == '0'}">판매안함</span>
+							<span th:if="${list.state == 1}">판매함</span>
+							<span th:if="${list.state == 0}">판매안함</span>
 						</td>
 						<td th:text="${list.createdDate.toLocalDate()}">생성일</td>	
 					</tr>

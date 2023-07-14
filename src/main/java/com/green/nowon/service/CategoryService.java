@@ -31,5 +31,11 @@ public class CategoryService {
 	}
 
 
+	public void deleteProcess(long no) {
+		repo.deleteById(no);
+		
+	}
+
+
 	
 }

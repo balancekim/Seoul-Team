@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org"  >
+<main>
+	<section id="goods-modify" >
+		<h1>상품수정</h1>
+		<div class="wrap">
+			<p>상품수정 페이지</p>
+			<hr>
+			<form id="form-goods" action="/admin/goods/modify" method="post">
+				<div>
+					<label>카테고리</label>
+					<div class="category">
+						
+					</div>
+				</div>
+				<div>
+					<label>상품명</label>
+					<input type="text" name="title" th:value="${list.title}">
+				</div>
+				<div>
+					<label>판매상태</label>
+					<select name="state" th:value="${list.state}">
+						<option value="1">판매함</option>
+						<option value="0">판매안함</option>
+					</select>
+				</div>
+				<div>
+					<label>정가</label>
+					<input type="text" name="cost" th:value="${list.cost}"><span>원</span>
+				</div>
+				<div>
+					<label>판매가</label>
+					<input type="text" name="price" th:value="${list.price}"><span>원</span>
+				</div>
+				<div>
+					<label>재고수량</label>
+					<input type="text" name="stock" th:value="${list.stock}"><span>개</span>
+				</div>
+				<div>
+					<label>상세설명</label>
+					<textarea name="content"></textarea>
+				</div>
+				<div>
+					<input type="hidden" th:if="${_csrf}" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+					<input type="hidden" name="no" th:value="${list.no}">
+					<button type="submit">수정</button>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+	
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
+		$.ajax({
+			url:"/admin/category/list",
+			type:"PATCH",
+			success:function(result){
+				$("#form-goods .category").html(result);
+			}
+		});
+	</script>
+</main>
+</html>
