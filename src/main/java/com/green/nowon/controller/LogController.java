@@ -26,9 +26,9 @@ public class LogController {
 	@GetMapping("/login")
 	public String login(HttpServletRequest request) {
 		String target = request.getHeader("referer");
-		if(target.contains("/signup")) {
-			return "redirect:/";
-		}
+		if(target.contains("/signup")||target.contains("/findPw")) {
+			return "member/login";
+		} 
 		if(!target.contains("/login")) {
 			HttpSession session=request.getSession();
 			session.setAttribute("prevPage", target);
