@@ -23,7 +23,10 @@
 								<img th:src="${dto.defImg}" height="200px;" width="200px;">
 								<div>
 									<p th:text="${dto.title}"></p>
-									<p th:text="${dto.price}"></p>
+									<i>
+									<span th:text="${#numbers.formatInteger(dto.price,3, 'COMMA')}"></span>
+									<span>원</span>
+									</i>
 								</div>
 								</a>
 							</li>
