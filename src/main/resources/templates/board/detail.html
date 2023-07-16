@@ -32,6 +32,13 @@
 			var token = $("meta[name='_csrf']").attr("content");
 			var header = $("meta[name='_csrf_header']").attr("content");
 			
+			var comContent = $('#comContent').val();
+			
+			if (comContent == "" || comContent == null) {
+				alert("내용을 입력해주세요");
+		        return false;
+		    }
+			
 			$.ajax({
 				beforeSend:function(xhr) {
 					xhr.setRequestHeader(header, token);
@@ -40,6 +47,7 @@
 				type:"POST",
 				data: paramData,
 				success:function(result){
+					$("#comContent").val('');
 					commentList();
 				}
 			});
@@ -103,7 +111,7 @@
 					<!-- 댓글 작성 부분 -->
 					<form id="comment-write" th:action="@{/comment/write/{no} (no=${board.no})}" method="post">
 						<div class="flex" sec:authorize="isAuthenticated()">
-							<input type="text" name="commentContent" placeholder="댓글을 작성해 주세요">
+							<input type="text" id="comContent" name="commentContent" placeholder="댓글을 작성해 주세요">
 							<button type="submit" id="btn-reply"><p>등록</p></button>
 						</div>
 						<div class="flex"  sec:authorize="isAnonymous()">
