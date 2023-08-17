@@ -13,7 +13,8 @@ http://iliveinseoul.site
   
   
   
-  <img src = "https://github.com/balancekim/Seoul-Team/assets/123040447/e85ed610-9778-479b-a4db-06948f26d3c3" width="600px" height="300px">
+  <img src = "https://user-images.githubusercontent.com/123040447/261230830-86d05dae-d859-43df-a0e5-95948e05f655.PNG" width="600px" height="300px">
+  
 
 <h3>-공지사항게시판 페이지</h3>
  <br>
