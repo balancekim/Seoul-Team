@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.green.nowon.domain.dto.GoodsSaveDTO;
+import com.green.nowon.domain.dto.GoodsUpdateDTO;
 import com.green.nowon.service.FileUploadService;
 import com.green.nowon.service.GoodsService;
 
@@ -57,7 +59,13 @@ public class GoodsController {
 	@GetMapping("/admin/goods/{no}")
 	public ModelAndView detail(@PathVariable long no ,Model model) {
 		service.detailProcess(no, model);
-		return new ModelAndView("admin/goods/modify");
+		return new ModelAndView("admin/goods/modify2");
+	}
+	@ResponseBody
+	@PostMapping("/admin/goods/modify")
+	public RedirectView goodsUpdate(GoodsUpdateDTO dto) {
+		service.UpdateProcess(dto);
+		return new RedirectView("/admin");
 	}
 	
 	@DeleteMapping("/admin/goods/del/{no}")

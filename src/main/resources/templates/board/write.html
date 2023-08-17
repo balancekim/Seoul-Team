@@ -3,16 +3,7 @@
 	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
 <head>
 	<link rel="stylesheet" href="/css/board/write.css">
-	
-	<script type="text/javascript">
-		
-		
-		function clickedCancel(){
-			location.href="/board/list";
-		}
-	
-	</script>
-	<link rel="stylesheet" href="/css/board/write.css">
+	<script src="/js/board/write.js"></script>	
 </head>
 <main>
 	<h1>게시글페이지</h1>
@@ -21,12 +12,12 @@
 			<section id="write-form">
 				<h1>글쓰기 폼</h1>
 				<div class="wrap">
-					<form action="/board/write" method="post">
+					<form action="/board/write" method="post" onsubmit="return submitCheck()">
 						<p>
-							<input id="title" type="text" name="title" placeholder="제목" required="required">
+							<input id="title" type="text" name="title" placeholder="제목">
 						</p>
 						<p>
-							<textarea id="content" name="content" placeholder="내용입력" required="required"></textarea>
+							<textarea id="content" name="content" placeholder="내용입력"></textarea>
 						</p>
 						<!-- 
 						<p id="img-area">

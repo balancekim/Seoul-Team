@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import com.green.nowon.domain.dto.GoodsDetailDTO;
 import com.green.nowon.domain.dto.GoodsImgListDTO;
 import com.green.nowon.domain.dto.GoodsSaveDTO;
+import com.green.nowon.domain.dto.GoodsUpdateDTO;
 import com.green.nowon.domain.dto.S3UploadDTO;
 import com.green.nowon.domain.entity.GoodsEntity;
 import com.green.nowon.domain.entity.GoodsImageEntity;
@@ -86,8 +89,14 @@ public class GoodsService {
 		
 	}
 
+
 	public void deleteProcess(long no) {
 		repo.deleteById(no);
+
+	public void UpdateProcess(GoodsUpdateDTO dto) {
+		GoodsEntity entity=repo.findById(dto.getNo()).orElseThrow().update(dto);
+		repo.save(entity);
+
 		
 	}
 

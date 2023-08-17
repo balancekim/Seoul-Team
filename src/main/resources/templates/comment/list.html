@@ -21,7 +21,7 @@
 				<div class="flex left udwrap" sec:authorize="isAuthenticated()">
 					<th:block  th:if="${#authentication.name == comment.creator.userId or #authorization.expr(hasRole('ADMIN'))} ">
 						<div class="flex left update" >
-							<a type="button" class="edit-btn space">수정</a>
+							<button type="button" class="edit-btn space">수정</button>
 							<a th:href="@{/board/{bno}/comment/{no} (bno=${comment.board.no}, no=${comment.no})}">글삭제</a>
 						</div>
 						<form class="form-update" th:action="@{/board/{bno}/comment/{no} (bno=${comment.board.no}, no=${comment.no})}" method="post">

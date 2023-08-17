@@ -1,9 +1,13 @@
 package com.green.nowon;
 
+import java.util.stream.IntStream;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.green.nowon.domain.entity.BoardEntity;
+import com.green.nowon.domain.entity.BoardRepository;
 import com.green.nowon.domain.entity.UserEntity;
 import com.green.nowon.domain.entity.UserEntityRepository;
 
@@ -21,5 +25,4 @@ class SeoulDataApplicationTests {
 				.userName("ddd")
 				.build());
 	}
-
 }

@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
-	th:replace="~{ layout/layout2 :: basic(~{this::head},~{::main}) }">
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
 	<head>
 		 <link rel="stylesheet" href="/css/userInfo.css"> 
-
+		
 		<script src="/js/userInfo.js"></script>
 		<script src="/js/findPw.js"></script>
 		<style type="text/css">
+
+		button[type="submit"] {
+		  width: 100%;
+		  background-color: #0984e3;
+		  color:white;
+		  border-radius: 20px;
+		}
 		
+	
+		
+		input{
+		width: 100%;
+		}
+		
+		#send-button{
+		 background-color: #0984e3;
+		  color:white;
+		width:50%;
+		height:20px;
+		border-radius: 10px;
+		margin-left:14px;
+		float: right;
+		margin-top: 10px;
+		}
+		
+		
+		#login-form .wrap input {
+			height: 40px;
+			border-radius: 30px;
+			margin-left:14px;
+		}
 		</style>
 	</head>
 	<body>
@@ -24,7 +54,7 @@
 				<section id="login-form">
 					<h1>비밀번호 확인</h1>
 					<div class="wrap">
-						<form action="/userInfo" method="post" onsubmit="return passResult()">
+						<form action="/user-pw" method="post" onsubmit="return passResult()">
 							<table>
 								<tr>
 									<td>
@@ -41,7 +71,7 @@
 							<div class="btn flex between ">
 								<input type="hidden" th:name="${_csrf.parameterName}"
 									th:value="${_csrf.token}"/>
-								<button type="submit">홈으로</button>
+								<button type="submit">로그인</button>
 							</div>
 						</form>
 					</div>

@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="//www.thymeleaf.org/extras/spring-security"
-	th:replace="~{ layout/layout2 :: basic(~{this::head},~{::main}) }">
+	th:replace="~{ layout/layout :: basic(~{this::head},~{::main}) }">
 	<head>
 		 <link rel="stylesheet" href="/css/userInfo.css"> 
 		<script src="/js/userInfo.js"></script>
 		<script src="/js/mail.js"></script>
 		<style type="text/css">
+		button[type="submit"] {
+		  width: 100%;
+		  background-color: #0984e3;
+		  color:white;
+		  border-radius: 20px;
+		}
 		
+		#login-form .wrap input {
+			height: 40px;
+			border-radius: 30px;
+			width: 100%;
+			margin-left:17px;
+		}
+		
+		#login-form .wrap .asd button{
+		background-color: #0984e3;
+		  color:white;
+		  margin-left:20px;
+		  border-radius: 10px;
+		  width: 40%;
+		  float: right;
+		  margin-top: 10px
+		}
 		</style>
 	</head>
 	<body>
@@ -25,7 +47,7 @@
 				<section id="login-form">
 					<div class="wrap">
 						<form action="/userInfo" method="post" onsubmit="return idCheck()">
-							<table>
+							<table class="asd">
 								<tr>
 									<td>
 										<input type="text" name="name" id="userName" placeholder="이름">
