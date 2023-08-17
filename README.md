@@ -6,15 +6,16 @@ http://iliveinseoul.site
 사용 툴
 JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
 
-
-<h2>-개인정보 수정페이지</h2>
+<h2>당담 업무</h2>
+<hr>
+<h3>-개인정보 수정페이지</h3>
 <br>
   
   
   
   <img src = "https://github.com/balancekim/Seoul-Team/assets/123040447/e85ed610-9778-479b-a4db-06948f26d3c3" width="600px" height="300px">
 
-<h2>-공지사항게시판 페이지</h2>
+<h3>-공지사항게시판 페이지</h3>
  <br>
     spring security 를 통해 관리자 권한이 있는 유저만 C.U.D 할 수 있도록 구성 
     <br>
@@ -26,7 +27,7 @@ JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
 
 
 
-<h2>-공공데이터 페이지</h2>
+<h3>-공공데이터 페이지</h3>
 
 ![image](https://github.com/balancekim/Seoul-Team/assets/123040447/06a7bf9f-4d48-47d1-8e4a-5b4b874fad1f)
 
