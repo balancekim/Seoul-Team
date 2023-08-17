@@ -13,6 +13,7 @@ JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
   
   
   ![image](https://github.com/balancekim/Seoul-Team/assets/123040447/e85ed610-9778-479b-a4db-06948f26d3c3)
+  <img src = "https://github.com/balancekim/Seoul-Team/assets/123040447/e85ed610-9778-479b-a4db-06948f26d3c3" width="400px" height="400px">
 
 <h2>-공지사항게시판 페이지</h2>
  <br>
