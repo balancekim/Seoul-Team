@@ -7,7 +7,7 @@ http://iliveinseoul.site
 JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
 
 <h2>당담 업무</h2>
-<hr>
+
 <h3>-개인정보 수정페이지</h3>
 <br>
   
