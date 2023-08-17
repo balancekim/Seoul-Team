@@ -2,9 +2,11 @@
 
 
 http://iliveinseoul.site
-
+개요
+(서울시 공공데이터를 활용한 웹페이지 제작)
 사용 툴
 (JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB)
+
 
 <h2>당담 업무</h2>
 
