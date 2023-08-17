@@ -13,6 +13,7 @@ JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
  
 
 -공지사항게시판 페이지(기본 CRUD 연습)
+ <br>
  spring security 를 통해 관리자 권한이 있는 유저만 C.U.D 할 수 있도록 구성 
 
 -공공데이터 페이지
