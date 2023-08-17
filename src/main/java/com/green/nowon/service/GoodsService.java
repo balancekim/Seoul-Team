@@ -89,9 +89,14 @@ public class GoodsService {
 		
 	}
 
+
+	public void deleteProcess(long no) {
+		repo.deleteById(no);
+
 	public void UpdateProcess(GoodsUpdateDTO dto) {
 		GoodsEntity entity=repo.findById(dto.getNo()).orElseThrow().update(dto);
 		repo.save(entity);
+
 		
 	}
 

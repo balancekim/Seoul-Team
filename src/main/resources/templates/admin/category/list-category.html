@@ -3,7 +3,7 @@
 	<select th:unless="${#lists.isEmpty(list)}" name="cateNo">
 		<option >카테고리</option>
 		<th:block th:each="dto:${list}">
-		<option th:value="${dto.no}" th:text="${dto.name}">카테고리명</option>
+			<option th:value="${dto.no}" th:text="${dto.name}">카테고리명</option>
 		</th:block>
 	</select>
 	<span th:unless="${#lists.isEmpty(list)}"  class="sub">

@@ -10,20 +10,45 @@
 					<tr>
 						<td>카테고리 번호</td>
 						<td>카테고리 이름</td>
+
+						<td>수정/삭제</td>
+					</tr>
+				</thead>
+				<tbody id="show">
+					<tr th:if="${#lists.isEmpty(list)}">
+						<th colspan="4">게시글이 존재하지 않습니다.</th>
+
 						<td>삭제</td>
 					</tr>
 				</thead>
 				<tbody id="show" class="categoryList">
 					<tr th:if="${#lists.isEmpty(list)}">
 						<th colspan="4">카테고리가 존재하지 않습니다.</th>
+
 					</tr>
 					<!-- getter 필요함 -->
 					<tr th:each="list:${list}">
 						<td th:text="${list.no}">카테고리번호</td>
+
+						<td >
+							<a th:text="${list.name}" th:href="|/admin/category/${list.no}">카테고리이름</a>
+							<form class="form-update" th:action="@{/admin/category/update/{no} (no=${list.no})}" method="post">
+							<input class="editComment" name="editComment" th:value="${comment.commentContent}">
+							<div class="update-edit">
+								<button type="submit" class="space">수정</button>
+								<button type="button" class="edit-cancel">취소</button>
+							</div>
+						</form>
+						</td>
+						
+						<td>
+							<a type="button" class="edit-btn space">수정</a>
+
 						<td th:text="${list.name}">카테고리이름</td>
 						
 						<td>
 							<a class="del" th:href="|/admin/category/del/${list.no}|">삭제</a>
+
 						</td>
 					</tr>
 				</tbody>
