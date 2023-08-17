@@ -1,12 +1,11 @@
 # Seoul-Team
 
 
-
+http://iliveinseoul.site
 
 사용 툴
 JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
 
-담당 업무 
 
 <h2>-개인정보 수정페이지</h2>
 <br>
