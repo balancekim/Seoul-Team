@@ -19,7 +19,7 @@ JAVA 11/Spring-Boot 2.7.12/ Security 5 / JPA / mariaDB
  <br>
     spring security 를 통해 관리자 권한이 있는 유저만 C.U.D 할 수 있도록 구성 
     <br>
-   ![image](https://github.com/balancekim/Seoul-Team/assets/123040447/77728461-c164-4548-9321-e85a36d47b6b)
+   ![image](https://github.com/balancekim/Seoul-Team/assets/123040447/77728461-c164-4548-9321-e85a36d47b6b)<br>
    ![image](https://github.com/balancekim/Seoul-Team/assets/123040447/bf994437-9f71-4bcb-8c77-4b9718c4b12e)
 
 
