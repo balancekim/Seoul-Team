@@ -9,6 +9,7 @@ http://iliveinseoul.site
 <h2>당담 업무</h2>
 
 <h3>-개인정보 수정페이지</h3>
+<hr>
 
   
   
@@ -17,7 +18,7 @@ http://iliveinseoul.site
   
 
 <h3>-공지사항게시판 페이지</h3>
- <br>
+ <hr>
     spring security 를 통해 관리자 권한이 있는 유저만 C.U.D 할 수 있도록 구성 
     <br>
   
@@ -29,7 +30,7 @@ http://iliveinseoul.site
 
 
 <h3>-공공데이터 페이지</h3>
-
+  <hr>
 
 <img src = "https://user-images.githubusercontent.com/123040447/261230827-176d3cc0-c2e8-4a3b-b1d9-5e6df10c158a.PNG" width="600px" height="300px">
 
