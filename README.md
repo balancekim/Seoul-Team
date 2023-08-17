@@ -21,9 +21,9 @@ http://iliveinseoul.site
     spring security 를 통해 관리자 권한이 있는 유저만 C.U.D 할 수 있도록 구성 
     <br>
   
-   <img src = "https://github.com/balancekim/Seoul-Team/assets/123040447/77728461-c164-4548-9321-e85a36d47b6b" width="600px" height="300px">
+   <img src = "https://user-images.githubusercontent.com/123040447/261230807-59a629b0-ea9c-45ea-af1d-9e6936b2b912.PNG" width="600px" height="300px">
    <hr>
-   <img src = "https://github.com/balancekim/Seoul-Team/assets/123040447/bf994437-9f71-4bcb-8c77-4b9718c4b12e" width="600px" height="300px">
+   <img src = "https://user-images.githubusercontent.com/123040447/261230821-2624d7ca-02a8-4682-8fe8-3e6005e2bbd6.PNG" width="600px" height="300px">
 
 
 
