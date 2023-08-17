@@ -14,7 +14,7 @@ http://iliveinseoul.site
   
   
   
-  <img src = "https://user-images.githubusercontent.com/123040447/261230830-86d05dae-d859-43df-a0e5-95948e05f655.PNG" width="800px" height="300px">
+  <img src = "https://user-images.githubusercontent.com/123040447/261230830-86d05dae-d859-43df-a0e5-95948e05f655.PNG" width="600px" height="300px">
   
 
 <h3>-공지사항게시판 페이지</h3>
@@ -32,7 +32,7 @@ http://iliveinseoul.site
 <h3>-공공데이터 페이지</h3>
   <hr>
 
-<img src = "https://user-images.githubusercontent.com/123040447/261230827-176d3cc0-c2e8-4a3b-b1d9-5e6df10c158a.PNG" width="800px" height="300px">
+<img src = "https://user-images.githubusercontent.com/123040447/261230827-176d3cc0-c2e8-4a3b-b1d9-5e6df10c158a.PNG" width="600px" height="300px">
 
 
 
