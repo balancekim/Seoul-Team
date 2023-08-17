@@ -30,7 +30,9 @@ http://iliveinseoul.site
 
 <h3>-공공데이터 페이지</h3>
 
-![image](https://github.com/balancekim/Seoul-Team/assets/123040447/06a7bf9f-4d48-47d1-8e4a-5b4b874fad1f)
+
+<img src = "https://user-images.githubusercontent.com/123040447/261230827-176d3cc0-c2e8-4a3b-b1d9-5e6df10c158a.PNG" width="600px" height="300px">
+
 
 
 
